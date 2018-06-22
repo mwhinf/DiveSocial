@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */; };
+		530EE05920C9AC2C00F708DF /* addDiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530EE05820C9AC2B00F708DF /* addDiveController.swift */; };
+		5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343BEF520C9D9D7006298B3 /* DiveListController.swift */; };
 		538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */; };
 		538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD6120B4A1A300F58FB9 /* ViewController.swift */; };
 		538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6320B4A1A300F58FB9 /* Main.storyboard */; };
@@ -14,6 +17,14 @@
 		538DCD6A20B4A1A600F58FB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6820B4A1A600F58FB9 /* LaunchScreen.storyboard */; };
 		538DCD7520B4A1A700F58FB9 /* DiveLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD7420B4A1A700F58FB9 /* DiveLogTests.swift */; };
 		538DCD8020B4A1A700F58FB9 /* DiveLogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD7F20B4A1A700F58FB9 /* DiveLogUITests.swift */; };
+		539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A8E1920B6674E0061464F /* TableViewCell.swift */; };
+		539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */; };
+		539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B3D1220C85536000F18BC /* MapMarkerWindow.swift */; };
+		53A1859120B73C38009301DF /* DiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A1859020B73C38009301DF /* DiveViewController.swift */; };
+		53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A185D220BF0DB3009301DF /* mapViewController.swift */; };
+		53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564F820D347DA0019C414 /* GPSViewController.swift */; };
+		53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */; };
+		53E3745520BFB6E5000299DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E3745420BFB6E5000299DB /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiveLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.release.xcconfig"; sourceTree = "<group>"; };
+		530EE05820C9AC2B00F708DF /* addDiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDiveController.swift; sourceTree = "<group>"; };
+		5343BEF520C9D9D7006298B3 /* DiveListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveListController.swift; sourceTree = "<group>"; };
 		538DCD5C20B4A1A300F58FB9 /* DiveLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiveLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		538DCD6120B4A1A300F58FB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +62,15 @@
 		538DCD7B20B4A1A700F58FB9 /* DiveLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiveLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538DCD7F20B4A1A700F58FB9 /* DiveLogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveLogUITests.swift; sourceTree = "<group>"; };
 		538DCD8120B4A1A700F58FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		539A8E1920B6674E0061464F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
+		539B3D1220C85536000F18BC /* MapMarkerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerWindow.swift; sourceTree = "<group>"; };
+		53A1859020B73C38009301DF /* DiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveViewController.swift; sourceTree = "<group>"; };
+		53A185D220BF0DB3009301DF /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
+		53A564F820D347DA0019C414 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
+		53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		53E3745420BFB6E5000299DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048247BA6BE0457DBCCD5BEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		538DCD5320B4A1A200F58FB9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +114,8 @@
 				538DCD7320B4A1A700F58FB9 /* DiveLogTests */,
 				538DCD7E20B4A1A700F58FB9 /* DiveLogUITests */,
 				538DCD5D20B4A1A300F58FB9 /* Products */,
+				E716E3472477B91782634D4C /* Pods */,
+				048247BA6BE0457DBCCD5BEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,8 +133,18 @@
 			isa = PBXGroup;
 			children = (
 				538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */,
+				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
+				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
 				538DCD6120B4A1A300F58FB9 /* ViewController.swift */,
+				53E3745420BFB6E5000299DB /* LoginView.swift */,
+				53A185D220BF0DB3009301DF /* mapViewController.swift */,
+				539A8E1920B6674E0061464F /* TableViewCell.swift */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
+				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
+				53A564F820D347DA0019C414 /* GPSViewController.swift */,
+				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
+				530EE05820C9AC2B00F708DF /* addDiveController.swift */,
+				53A1859020B73C38009301DF /* DiveViewController.swift */,
 				538DCD6620B4A1A600F58FB9 /* Assets.xcassets */,
 				538DCD6820B4A1A600F58FB9 /* LaunchScreen.storyboard */,
 				538DCD6B20B4A1A600F58FB9 /* Info.plist */,
@@ -125,6 +170,15 @@
 			path = DiveLogUITests;
 			sourceTree = "<group>";
 		};
+		E716E3472477B91782634D4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */,
+				0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 538DCD8420B4A1A700F58FB9 /* Build configuration list for PBXNativeTarget "DiveLog" */;
 			buildPhases = (
+				6B005496611F1B4B5E8DBB04 /* [CP] Check Pods Manifest.lock */,
 				538DCD5820B4A1A300F58FB9 /* Sources */,
 				538DCD5920B4A1A300F58FB9 /* Frameworks */,
 				538DCD5A20B4A1A300F58FB9 /* Resources */,
+				AB269187706AA673A5B1523F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +288,7 @@
 				538DCD6A20B4A1A600F58FB9 /* LaunchScreen.storyboard in Resources */,
 				538DCD6720B4A1A600F58FB9 /* Assets.xcassets in Resources */,
 				538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */,
+				539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +308,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6B005496611F1B4B5E8DBB04 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DiveLog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB269187706AA673A5B1523F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		538DCD5820B4A1A300F58FB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E3745520BFB6E5000299DB /* LoginView.swift in Sources */,
+				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,
+				539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */,
+				539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */,
+				53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */,
+				53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */,
 				538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */,
+				53A1859120B73C38009301DF /* DiveViewController.swift in Sources */,
+				5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */,
 				538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */,
+				530EE05920C9AC2C00F708DF /* addDiveController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,16 +535,65 @@
 		};
 		538DCD8520B4A1A700F58FB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GAWFJ4MA57;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"",
+				);
 				INFOPLIST_FILE = DiveLog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -445,16 +601,65 @@
 		};
 		538DCD8620B4A1A700F58FB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GAWFJ4MA57;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"",
+					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"",
+				);
 				INFOPLIST_FILE = DiveLog/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

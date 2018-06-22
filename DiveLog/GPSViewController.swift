@@ -7,29 +7,65 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class GPSViewController: UIViewController {
 
+    var latitude = ""
+    var longitude = ""
+    
+    @IBOutlet weak var testButton: UIButton!
+    @IBOutlet weak var mapView: GMSMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
+        mapView.camera = camera
+        mapView.delegate = self
+        mapView.settings.consumesGesturesInView = false
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is addDiveController
+        {
+            let vc = segue.destination as? addDiveController
+            let latString = latitude as NSString
+            let longString = longitude as NSString
+            let latDouble = latString.doubleValue
+            let longDouble = longString.doubleValue
+            let trimmedLatDouble = latDouble.truncate(places: 4)
+            let trimmedLongDouble = longDouble.truncate(places: 4)
+            let finalLatString = String(trimmedLatDouble)
+            let finalLongString = String(trimmedLongDouble)
+            
+            vc?.lat = finalLatString
+            vc?.long = finalLongString
+            
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
-    */
+}
 
+extension GPSViewController: GMSMapViewDelegate{
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D){
+        mapView.clear()
+        latitude += String(coordinate.latitude)
+        longitude += String(coordinate.longitude)
+        let marker = GMSMarker(position: coordinate)
+        marker.map = mapView
+    }
+}
+
+
+extension Double
+{
+    func truncate(places : Int)-> Double
+    {
+        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
+    }
 }
