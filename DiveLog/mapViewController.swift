@@ -12,7 +12,8 @@ import GoogleMaps
 
 class mapViewController: UIViewController {
 
-    var dives: [Dive] = []
+    var divesList: [DiveListController.Dive] = []
+    var dives: [DiveListController.Dive] = []
     
     @IBAction func unwindToMap(unwindSegue: UIStoryboardSegue) {
         
@@ -28,61 +29,23 @@ class mapViewController: UIViewController {
     @IBOutlet fileprivate weak var mapView: GMSMapView!
     
     
-    struct Dive: Codable {
-        let diveNo: String
-        let date: String
-        let diveSite: String
-        let location: String
-        let country: String
-        let depth: String
-        let bottomTime: String
-        let latitude: Double
-        let longitude: Double
-        let diveType: String? = nil
-        let timeIn: String? = nil
-        let timeOut: String? = nil
-        let surfaceInterval: String? = nil
-        let safetyStopDepth: Double? = nil
-        let safetyStopDuration: Double? = nil
-        let divemasterName: String? = nil
-        let divemasterNum: Int? = nil
-        let diveNotes: String? = nil
-        let airTemp: Double? = nil
-        let waterTemp: Double? = nil
-        let weight: Double? = nil
-        let startTankPressure: Double? = nil
-        let endTankPressure: Double? = nil
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        func saveToFile(dives: Array<Dive>) {
-            let archiveURL = documentsDirectory.appendingPathComponent("diveList").appendingPathExtension("plist")
-            let propertyListEncoder = PropertyListEncoder()
-            
-            let encodedDives = try? propertyListEncoder.encode(dives)
-            
-            try? encodedDives?.write(to: archiveURL, options: .noFileProtection)
-        }
-        
-        func loadFromFile() -> Array<Dive> {
-            
-            let propertyListDecoder = PropertyListDecoder()
-            var temp: Array<Dive> = []
-            let archiveURL = documentsDirectory.appendingPathComponent("diveList").appendingPathExtension("plist")
-            if let retrievedDivesData = try? Data(contentsOf: archiveURL),
-                let decodedDives = try? propertyListDecoder.decode(Array<Dive>.self, from: retrievedDivesData) {
-                print(decodedDives)
-                temp = decodedDives
-            }
-            return temp
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is DiveListController
+        {
+            let vc = segue.destination as? DiveListController
+            vc?.dives = dives
+            vc?.divesList = divesList
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dive1 = Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933)
+        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933)
         
-        let dive2 = Dive(diveNo: "Dive No.2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383)
+        /*let dive2 = Dive(diveNo: "Dive No.2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383)
         
         let dive3 = Dive(diveNo: "Dive No.3", date: "6/4/17", diveSite: "Twins", location: "Koh Tao", country: "Thailand", depth: "15.6m", bottomTime: "40 min", latitude: 10.116782, longitude: 99.813431)
         
@@ -97,7 +60,7 @@ class mapViewController: UIViewController {
         dives.append(dive3)
         dives.append(dive4)
         dives.append(dive5)
-        dives.append(dive6)
+        dives.append(dive6)*/
         
         let camera = GMSCameraPosition.camera(withLatitude: dive1.latitude, longitude: dive1.longitude, zoom: 2.0)
         
@@ -105,21 +68,17 @@ class mapViewController: UIViewController {
         mapView.delegate = self
         mapView.mapType = GMSMapViewType.hybrid
         mapView.settings.consumesGesturesInView = false
-        
-        //showMarker()
     }
     
     func showMarker(){
         var counter = 0
         for dive in dives {
             let marker = GMSMarker()
-            //marker.position = position
             marker.position = CLLocationCoordinate2D(latitude: dive.latitude, longitude: dive.longitude)
             marker.title = String(counter)
             marker.map = mapView
             counter+=1
             print(counter)
-            
         }
     }
     

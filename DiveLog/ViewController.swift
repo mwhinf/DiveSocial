@@ -10,16 +10,16 @@ import UIKit
 import GoogleMaps
 
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+//class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // Declare global variables & objects
+    /*// Declare global variables & objects
     let cellSpacingHeight: CGFloat = 5
     var divesList: [Dive] = []
     var dives: [Dive] = []
     let diveSegueIdentifier = "ShowDiveSegue"
-    let diveInstance = Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0)
+    let diveInstance = Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0)*/
     
-    // Create model object
+    /*// Create model object
     struct Dive: Codable {
         let diveNo: String
         let date: String
@@ -67,28 +67,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             return temp
         }
-    }
+    }*/
     
     
-    @IBAction func unwindToTabs(unwindSegue: UIStoryboardSegue) {
+   /* @IBAction func unwindToTabs(unwindSegue: UIStoryboardSegue) {
         //self.tableView.reloadData()
-    }
-    @IBOutlet weak var loginView: UIView!
-    @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    }*/
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    //override func viewDidLoad() {
+      //  super.viewDidLoad()
         
-        initialData()
+        /*initialData()
         dives = diveInstance.loadFromFile()
         
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)
-    }
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .normal)*/
+   // }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is addDiveController
         {
@@ -97,10 +95,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             vc?.divesList = divesList
         }
         
-    }
+    }*/
     
     
-    func initialData() {
+    /*func initialData() {
         
         // Add initial dive data
         let dive1 = Dive(diveNo: "1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933)
@@ -123,9 +121,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         divesList.append(dive6)
         
         dive1.saveToFile(dives: divesList)
-    }
+    }*/
     
-    // Set up tableview
+    /*// Set up tableview
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
@@ -164,15 +162,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.layer.cornerRadius = 20
         
         return cell
-    }
+    }*/
     
-    override func didReceiveMemoryWarning() {
+    /*override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-}
+    }*/
+//}
 
-extension UITextField {
+/*extension UITextField {
     var unwrappedText: String {
         return self.text ?? ""
     }
-}
+}*/

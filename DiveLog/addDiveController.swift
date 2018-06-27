@@ -8,12 +8,12 @@
 
 import UIKit
 
-class addDiveController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    let diveInstanceB = ViewController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0)
+    let diveInstanceB = DiveListController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0)
     
-    var divesList: [ViewController.Dive] = []
-    var dives: [ViewController.Dive] = []
+    var divesList: [DiveListController.Dive] = []
+    var dives: [DiveListController.Dive] = []
     
     var lat = ""
     var long = ""
@@ -24,6 +24,10 @@ class addDiveController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var timeInMin = Int()
     var timeOutHour = Int()
     var timeOutMin = Int()
+    let autoCompleteSuggestions: [String] = ["United States", "Mexico", "Thailand", "Indonesia"]
+    var autoCompleteCharacterCount = 0
+    var timer = Timer()
+    
     
     @IBAction func unwindToAdd(unwindSegue: UIStoryboardSegue) {
         
@@ -49,8 +53,17 @@ class addDiveController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let countryText = countryBox.unwrappedText
         let depthText = depthBox.unwrappedText
         let btmTimeText = btmTimeBox.unwrappedText
+        let latText = latBox.unwrappedText
+        let longText = longBox.unwrappedText
+        var latDouble = Double(latText)
+        var longDouble = Double(longText)
         
-        let diveTemp = ViewController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: 12.72, longitude: -91.799)
+        if latText.isEmpty == true {
+            latDouble = -12.712
+            longDouble = 90.402
+        }
+        
+        let diveTemp = DiveListController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: latDouble!, longitude: longDouble!)
         
         divesList.append(diveTemp)
         diveInstanceB.saveToFile(dives: divesList)
@@ -58,60 +71,97 @@ class addDiveController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         print("Saved!!!")
         print(dives.count)
         
-        performSegue(withIdentifier: "unwindToTabs", sender: Any?.self)
+        performSegue(withIdentifier: "unwindToDiveList", sender: Any?.self)
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { //1
+        var subString = (textField.text!.capitalized as NSString).replacingCharacters(in: range, with: string) // 2
+        subString = formatSubstring(subString: subString)
+        
+        if subString.count == 0 { // 3 when a user clears the textField
+            resetValues()
+        } else {
+            searchAutocompleteEntriesWIthSubstring(substring: subString) //4
+        
+        }
+        return true
+    }
     
-        // Create model object
-        struct Dive: Codable {
-            let diveNo: String
-            let date: String
-            let diveSite: String
-            let location: String
-            let country: String
-            let depth: String
-            let bottomTime: String
-            let latitude: Double
-            let longitude: Double
-            let diveType: String? = nil
-            let timeIn: String? = nil
-            let timeOut: String? = nil
-            let surfaceInterval: String? = nil
-            let safetyStopDepth: Double? = nil
-            let safetyStopDuration: Double? = nil
-            let divemasterName: String? = nil
-            let divemasterNum: Int? = nil
-            let diveNotes: String? = nil
-            let airTemp: Double? = nil
-            let waterTemp: Double? = nil
-            let weight: Double? = nil
-            let startTankPressure: Double? = nil
-            let endTankPressure: Double? = nil
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    func formatSubstring(subString: String) -> String {
+        let formatted = String(subString.dropLast(autoCompleteCharacterCount)).lowercased().capitalized //5
+        return formatted
+    }
+    
+    func resetValues() {
+        autoCompleteCharacterCount = 0
+        countryBox.text = ""
+    }
+    
+    func searchAutocompleteEntriesWIthSubstring(substring: String) {
+        let userQuery = substring
+        let autoCompleteSuggestions = getAutocompleteSuggestions(userText: substring) //1
+        
+        if autoCompleteSuggestions.count > 0 {
+            timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in //2
+                let autocompleteResult = self.formatAutocompleteResult(substring: substring, possibleMatches: autoCompleteSuggestions) // 3
+                self.putColourFormattedTextInTextField(autocompleteResult: autocompleteResult, userQuery : userQuery) //4
+                self.moveCaretToEndOfUserQueryPosition(userQuery: userQuery) //5
+            })
+        } else {
+            timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in //7
+                self.countryBox.text = substring
+            })
+            autoCompleteCharacterCount = 0
+        }
+    }
+    
+    func getAutocompleteSuggestions(userText: String) -> [String]{
+        var possibleMatches: [String] = []
+        for item in autoCompleteSuggestions { //2
+            let myString:NSString! = item as NSString
+            let substringRange :NSRange! = myString.range(of: userText)
             
-            func saveToFile(dives: Array<Dive>) {
-                let archiveURL = documentsDirectory.appendingPathComponent("diveList").appendingPathExtension("plist")
-                let propertyListEncoder = PropertyListEncoder()
-                let encodedDives = try? propertyListEncoder.encode(dives)
-                try? encodedDives?.write(to: archiveURL, options: .noFileProtection)
-            }
-            
-            func loadFromFile() -> Array<Dive> {
-                
-                let propertyListDecoder = PropertyListDecoder()
-                var temp: Array<Dive> = []
-                let archiveURL = documentsDirectory.appendingPathComponent("diveList").appendingPathExtension("plist")
-                if let retrievedDivesData = try? Data(contentsOf: archiveURL),
-                    let decodedDives = try? propertyListDecoder.decode(Array<Dive>.self, from: retrievedDivesData) {
-                    print(decodedDives)
-                    temp = decodedDives
-                }
-                return temp
+            if (substringRange.location == 0)
+            {
+                possibleMatches.append(item)
             }
         }
+        return possibleMatches
+    }
+    
+    func putColourFormattedTextInTextField(autocompleteResult: String, userQuery : String) {
+        let colouredString: NSMutableAttributedString = NSMutableAttributedString(string: userQuery + autocompleteResult)
+        colouredString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: NSRange(location: userQuery.count,length:autocompleteResult.count))
+        self.countryBox.attributedText = colouredString
+    }
+    
+    func moveCaretToEndOfUserQueryPosition(userQuery : String) {
+        if let newPosition = self.countryBox.position(from: self.countryBox.beginningOfDocument, offset: userQuery.count) {
+            self.countryBox.selectedTextRange = self.countryBox.textRange(from: newPosition, to: newPosition)
+        }
+        let selectedRange: UITextRange? = countryBox.selectedTextRange
+        countryBox.offset(from: countryBox.beginningOfDocument, to: (selectedRange?.start)!)
+    }
+    
+    func formatAutocompleteResult(substring: String, possibleMatches: [String]) -> String {
+        var autoCompleteResult = possibleMatches[0]
+        autoCompleteResult.removeSubrange(autoCompleteResult.startIndex..<autoCompleteResult.index(autoCompleteResult.startIndex, offsetBy: substring.count))
+        autoCompleteCharacterCount = autoCompleteResult.count
+        return autoCompleteResult
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("WEEEEEE")
+        textField.textColor = .black
+        textField.resignFirstResponder()
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        countryBox.autocorrectionType = .no
+        countryBox.autocapitalizationType = .none
         
         // Hide keyboard upon screen tap
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -167,6 +217,8 @@ class addDiveController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             btmTimeBox.text = btmTimeReal
         }
         
+        //var data = readDataFromFile(file: "Thailand_DiveSite_GPS")
+        //print(data)
         
         if lat.isEmpty == false {
             latBox.text = lat
@@ -242,6 +294,23 @@ class addDiveController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
         return "None?"
     }
+    
+   /*func readDataFromFile(file:String)-> String!{
+    
+         guard let filepath = Bundle.main.path(forResource: "Thailand_DiveSite_GPS", ofType: "txt")
+            else {
+                return nil
+        }
+        do {
+            //let content = NSString.stringWithContentsOfFile(filepath) as! String
+            let contents = try String(contentsOfFile: filepath, encoding: nil)
+            return contents
+        }
+        catch {
+            print("File Read Error for file \(filePath)")
+            return nil
+        }
+    }*/
     
     // initialize Date/Time Pickers
     let timeInPicker = UIDatePicker()

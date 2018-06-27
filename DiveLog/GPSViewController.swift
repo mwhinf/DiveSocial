@@ -28,7 +28,8 @@ class GPSViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is addDiveController
+        //if segue.destination is addDiveController
+        if sender is ConfirmButton
         {
             let vc = segue.destination as? addDiveController
             let latString = latitude as NSString

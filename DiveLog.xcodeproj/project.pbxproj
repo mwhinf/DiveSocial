@@ -24,6 +24,9 @@
 		53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A185D220BF0DB3009301DF /* mapViewController.swift */; };
 		53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564F820D347DA0019C414 /* GPSViewController.swift */; };
 		53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */; };
+		53E07B7420DD597300625188 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7320DD597300625188 /* LoginViewController.swift */; };
+		53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7520DDF1E500625188 /* ConfirmButton.swift */; };
+		53E07B7820DDF22500625188 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7720DDF22500625188 /* CancelButton.swift */; };
 		53E3745520BFB6E5000299DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E3745420BFB6E5000299DB /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +72,9 @@
 		53A185D220BF0DB3009301DF /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		53A564F820D347DA0019C414 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		53E07B7320DD597300625188 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		53E07B7520DDF1E500625188 /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
+		53E07B7720DDF22500625188 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		53E3745420BFB6E5000299DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,10 +142,13 @@
 				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
 				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
 				538DCD6120B4A1A300F58FB9 /* ViewController.swift */,
+				53E07B7320DD597300625188 /* LoginViewController.swift */,
 				53E3745420BFB6E5000299DB /* LoginView.swift */,
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
 				539A8E1920B6674E0061464F /* TableViewCell.swift */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
+				53E07B7520DDF1E500625188 /* ConfirmButton.swift */,
+				53E07B7720DDF22500625188 /* CancelButton.swift */,
 				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
 				53A564F820D347DA0019C414 /* GPSViewController.swift */,
 				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
@@ -354,12 +363,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E07B7420DD597300625188 /* LoginViewController.swift in Sources */,
+				53E07B7820DDF22500625188 /* CancelButton.swift in Sources */,
 				53E3745520BFB6E5000299DB /* LoginView.swift in Sources */,
 				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,
 				539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */,
 				539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */,
 				53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */,
 				53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */,
+				53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */,
 				538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */,
 				53A1859120B73C38009301DF /* DiveViewController.swift in Sources */,
 				5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */,
