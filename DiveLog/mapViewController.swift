@@ -43,7 +43,7 @@ class mapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933)
+        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
         
         /*let dive2 = Dive(diveNo: "Dive No.2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383)
         
@@ -108,7 +108,7 @@ extension mapViewController: GMSMapViewDelegate{
         infoWindow.layer.cornerRadius = 6
         infoWindow.layer.borderWidth = 2
         infoWindow.layer.borderColor = UIColor.white.cgColor
-        infoWindow.diveNoLabel.text = dives[tempNum!].diveNo
+        infoWindow.diveNoLabel.text = "Dive No. " + dives[tempNum!].diveNo
         infoWindow.dateLabel.text = dives[tempNum!].date
         infoWindow.diveSiteLabel.text = dives[tempNum!].diveSite
         infoWindow.locationLabel.text = dives[tempNum!].location + ","

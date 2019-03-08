@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import CloudKit
 
 class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    let diveInstanceB = DiveListController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0)
     
+    // Create dummy Dive instance to allow access to properties
+    let diveInstanceB = DiveListController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+    
+    // Initialize empty dive lists
     var divesList: [DiveListController.Dive] = []
     var dives: [DiveListController.Dive] = []
     
+    // Initialize global variables
     var lat = ""
     var long = ""
     var timeInString = ""
@@ -24,15 +28,15 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     var timeInMin = Int()
     var timeOutHour = Int()
     var timeOutMin = Int()
-    let autoCompleteSuggestions: [String] = ["United States", "Mexico", "Thailand", "Indonesia"]
     var autoCompleteCharacterCount = 0
     var timer = Timer()
+    var csvRows: [[String]] = []
+    var diveIndex: [Int] = []
     
-    
+    // Set up IBOutlets and IBActions
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBAction func unwindToAdd(unwindSegue: UIStoryboardSegue) {
-        
     }
-    
     @IBOutlet weak var diveNoBox: UITextField!
     @IBOutlet weak var dateBox: UITextField!
     @IBOutlet weak var diveSiteBox: UITextField!
@@ -44,6 +48,22 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     @IBOutlet weak var btmTimeBox: UITextField!
     @IBOutlet weak var latBox: UITextField!
     @IBOutlet weak var longBox: UITextField!
+    @IBOutlet weak var ssDepthBox: UITextField!
+    @IBOutlet weak var ssDurationBox: UITextField!
+    @IBOutlet weak var surfaceIntervalBox: UITextField!
+    @IBOutlet weak var divemasterBox: UITextField!
+    @IBOutlet weak var diveTypeBox: UITextField!
+    @IBOutlet weak var divemasterNumBox: UITextField!
+    @IBOutlet weak var airTempBox: UITextField!
+    @IBOutlet weak var waterTempBox: UITextField!
+    @IBOutlet weak var visibilityBox: UITextField!
+    @IBOutlet weak var weightBox: UITextField!
+    @IBOutlet weak var tpStartBox: UITextField!
+    @IBOutlet weak var tpEndBox: UITextField!
+    
+    @IBOutlet weak var notesBox: UITextField!
+    
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         let diveNoText = diveNoBox.unwrappedText
@@ -51,120 +71,71 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         let diveSiteText = diveSiteBox.unwrappedText
         let locationText = locationBox.unwrappedText
         let countryText = countryBox.unwrappedText
-        let depthText = depthBox.unwrappedText
-        let btmTimeText = btmTimeBox.unwrappedText
+        let depthText = depthBox.unwrappedText + "m"
+        let btmTimeText = btmTimeBox.unwrappedText + " min"
         let latText = latBox.unwrappedText
         let longText = longBox.unwrappedText
         var latDouble = Double(latText)
         var longDouble = Double(longText)
+        let diveTypeText = diveTypeBox.unwrappedText
+        let ssDepthText = ssDepthBox.unwrappedText
+        let ssDurationText = ssDepthBox.unwrappedText
+        let surfaceIntervalText = surfaceIntervalBox.unwrappedText
+        let divemasterText = divemasterBox.unwrappedText
+        let divemasterNumText = divemasterNumBox.unwrappedText
+        let airTempText = airTempBox.unwrappedText
+        let waterTempText = waterTempBox.unwrappedText
+        let visibilityText = visibilityBox.unwrappedText
+        let weightText = weightBox.unwrappedText
+        let tpStartText = tpStartBox.unwrappedText
+        let tpEndText = tpEndBox.unwrappedText
+        let notesText = notesBox.unwrappedText
         
         if latText.isEmpty == true {
             latDouble = -12.712
             longDouble = 90.402
         }
         
-        let diveTemp = DiveListController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: latDouble!, longitude: longDouble!)
+        let diveTemp = DiveListController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: latDouble!, longitude: longDouble!, diveType: diveTypeText, timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        
+        let privateDatabase = CKContainer.default().privateCloudDatabase
+        
+        let diveToSave = CKRecord(recordType: "Dive")
+        
+        diveToSave.setObject(dateText as CKRecordValue, forKey: "Date")
+        diveToSave.setObject(diveSiteText as CKRecordValue, forKey: "DiveSite")
+        diveToSave.setObject(locationText as CKRecordValue, forKey: "Location")
+        diveToSave.setObject(diveNoText as CKRecordValue, forKey: "DiveNo")
+        diveToSave.setObject(latDouble as CKRecordValue?, forKey: "Latitude")
+        diveToSave.setObject(longDouble as CKRecordValue?, forKey: "Longitude")
+        diveToSave.setObject(countryText as CKRecordValue, forKey: "Country")
+        diveToSave.setObject(btmTimeText as CKRecordValue, forKey: "BottomTime")
+        diveToSave.setObject(depthText as CKRecordValue, forKey: "Depth")
+        
+        privateDatabase.save(diveToSave) { (record, error) -> Void in
+            
+        }
         
         divesList.append(diveTemp)
         diveInstanceB.saveToFile(dives: divesList)
         dives = diveInstanceB.loadFromFile()
-        print("Saved!!!")
-        print(dives.count)
         
         performSegue(withIdentifier: "unwindToDiveList", sender: Any?.self)
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { //1
-        var subString = (textField.text!.capitalized as NSString).replacingCharacters(in: range, with: string) // 2
-        subString = formatSubstring(subString: subString)
-        
-        if subString.count == 0 { // 3 when a user clears the textField
-            resetValues()
-        } else {
-            searchAutocompleteEntriesWIthSubstring(substring: subString) //4
-        
-        }
-        return true
-    }
-    
-    func formatSubstring(subString: String) -> String {
-        let formatted = String(subString.dropLast(autoCompleteCharacterCount)).lowercased().capitalized //5
-        return formatted
-    }
-    
-    func resetValues() {
-        autoCompleteCharacterCount = 0
-        countryBox.text = ""
-    }
-    
-    func searchAutocompleteEntriesWIthSubstring(substring: String) {
-        let userQuery = substring
-        let autoCompleteSuggestions = getAutocompleteSuggestions(userText: substring) //1
-        
-        if autoCompleteSuggestions.count > 0 {
-            timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in //2
-                let autocompleteResult = self.formatAutocompleteResult(substring: substring, possibleMatches: autoCompleteSuggestions) // 3
-                self.putColourFormattedTextInTextField(autocompleteResult: autocompleteResult, userQuery : userQuery) //4
-                self.moveCaretToEndOfUserQueryPosition(userQuery: userQuery) //5
-            })
-        } else {
-            timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in //7
-                self.countryBox.text = substring
-            })
-            autoCompleteCharacterCount = 0
-        }
-    }
-    
-    func getAutocompleteSuggestions(userText: String) -> [String]{
-        var possibleMatches: [String] = []
-        for item in autoCompleteSuggestions { //2
-            let myString:NSString! = item as NSString
-            let substringRange :NSRange! = myString.range(of: userText)
-            
-            if (substringRange.location == 0)
-            {
-                possibleMatches.append(item)
-            }
-        }
-        return possibleMatches
-    }
-    
-    func putColourFormattedTextInTextField(autocompleteResult: String, userQuery : String) {
-        let colouredString: NSMutableAttributedString = NSMutableAttributedString(string: userQuery + autocompleteResult)
-        colouredString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: NSRange(location: userQuery.count,length:autocompleteResult.count))
-        self.countryBox.attributedText = colouredString
-    }
-    
-    func moveCaretToEndOfUserQueryPosition(userQuery : String) {
-        if let newPosition = self.countryBox.position(from: self.countryBox.beginningOfDocument, offset: userQuery.count) {
-            self.countryBox.selectedTextRange = self.countryBox.textRange(from: newPosition, to: newPosition)
-        }
-        let selectedRange: UITextRange? = countryBox.selectedTextRange
-        countryBox.offset(from: countryBox.beginningOfDocument, to: (selectedRange?.start)!)
-    }
-    
-    func formatAutocompleteResult(substring: String, possibleMatches: [String]) -> String {
-        var autoCompleteResult = possibleMatches[0]
-        autoCompleteResult.removeSubrange(autoCompleteResult.startIndex..<autoCompleteResult.index(autoCompleteResult.startIndex, offsetBy: substring.count))
-        autoCompleteCharacterCount = autoCompleteResult.count
-        return autoCompleteResult
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("WEEEEEE")
-        textField.textColor = .black
-        textField.resignFirstResponder()
-        return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        countryBox.autocorrectionType = .no
-        countryBox.autocapitalizationType = .none
+        
+        var data = readDataFromCSV(fileName: "testerbook", fileType: "csv")
+        
+        
+        data = cleanRows(file: data!)
+        csvRows = csv(data: data!)
         
         // Hide keyboard upon screen tap
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+    
         view.addGestureRecognizer(tap)
         
         // set initial dateBox text to current date
@@ -183,8 +154,10 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         diveNoPicker.dataSource = self
         diveNoBox.inputView = diveNoPicker
         diveNoBox.text = String(dives.count + 1)
+        diveNoBox.delegate = self
         
         // set up Depth textfield
+        depthBox.delegate = self
         depthPicker.delegate = self
         depthPicker.dataSource = self
         depthBox.inputView = depthPicker
@@ -193,32 +166,54 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         btmTimePicker.delegate = self
         btmTimePicker.dataSource = self
         btmTimeBox.inputView = btmTimePicker
+        btmTimeBox.delegate = self
         
-        // set up Time In textfield
+        // set up DiveSite textfield autocomplete
+        diveSiteBox.autocorrectionType = .no
+        diveSiteBox.autocapitalizationType = .none
+        
+        // set up TimeIn textfield
         timeInPicker.datePickerMode = .time
         timeInPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
         timeInBox.inputView = timeInPicker
+        timeInBox.delegate = self
         
         // set up Time Out textfield
         timeOutPicker.datePickerMode = .time
         timeOutPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
         timeOutBox.inputView = timeOutPicker
+        timeOutBox.delegate = self
         
         // set up Date textfield
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
         dateBox.inputView = datePicker
+        dateBox.delegate = self
+        
+        // set up Lat/Long textFields
+        latBox.delegate = self
+        longBox.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // set initial pickerView values
+        let diveNoPickerRow = dives.count
+        diveNoPicker.selectRow(diveNoPickerRow, inComponent: 0, animated: true)
+        
+        if depthBox.text?.isEmpty == false {
+            let depthPickerRow = Int(depthBox.text!)! - 1
+            depthPicker.selectRow(depthPickerRow, inComponent: 0, animated: true)
+        }
+        if btmTimeBox.text?.isEmpty == false {
+            let btmTimePickerRow = Int(btmTimeBox.text!)! - 1
+            btmTimePicker.selectRow(btmTimePickerRow, inComponent: 0, animated: true)
+        }
+        
         if timeInString.isEmpty && timeOutString.isEmpty == false {
             btmTimeBox.text = btmTimeReal
         }
-        
-        //var data = readDataFromFile(file: "Thailand_DiveSite_GPS")
-        //print(data)
         
         if lat.isEmpty == false {
             latBox.text = lat
@@ -238,11 +233,202 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // dismiss keyboard upon tap event
     @objc func dismissKeyboard() {
+        if diveSiteBox.becomeFirstResponder() == true {
+            let countryAutoString = diveSiteBox.text
+            if countryAutoString!.isEmpty == false {
+                let indexEndOfText = countryAutoString!.index(countryAutoString!.endIndex, offsetBy: (-autoCompleteCharacterCount - 1))
+                let substring = countryAutoString![...indexEndOfText]
+                let newstring = String(substring)
+                diveSiteBox.text = newstring
+            }
+        }
+        scrollView.contentOffset = CGPoint(x: 0, y: 0)
         view.endEditing(true)
+    }
+    
+    // Set up Dive Site textField autocomplete
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == diveSiteBox {
+            var subString = (textField.text!.capitalized as NSString).replacingCharacters(in: range, with: string)
+            subString = formatSubstring(subString: subString)
+        
+            if subString.count == 0 { // when a user clears the textField
+                resetValues()
+            } else {
+                searchAutocompleteEntriesWIthSubstring(substring: subString)
+            }
+        }
+            return true
+        
+    }
+    
+    func formatSubstring(subString: String) -> String {
+        let formatted = String(subString.dropLast(autoCompleteCharacterCount)).lowercased().capitalized
+        return formatted
+    }
+    
+    func resetValues() {
+        autoCompleteCharacterCount = 0
+        diveSiteBox.text = ""
+    }
+    
+    func searchAutocompleteEntriesWIthSubstring(substring: String) {
+        let userQuery = substring
+        let autoCompleteSuggestions = getAutocompleteSuggestions(userText: substring)
+        
+        if diveSiteBox.becomeFirstResponder() == true {
+            if autoCompleteSuggestions.count > 0 {
+                timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in
+                    let autocompleteResult = self.formatAutocompleteResult(substring: substring, possibleMatches: autoCompleteSuggestions)
+                    self.putColourFormattedTextInTextField(autocompleteResult: autocompleteResult, userQuery : userQuery)
+                    self.moveCaretToEndOfUserQueryPosition(userQuery: userQuery)
+                })
+            } else {
+                timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in
+                    self.diveSiteBox.text = substring
+                })
+                autoCompleteCharacterCount = 0
+            }
+        }
+    }
+    
+    func getAutocompleteSuggestions(userText: String) -> [String]{
+        var possibleMatches: [String] = []
+        for (index, _) in csvRows.enumerated() {
+            let myString:NSString! = csvRows[index][0] as NSString
+
+            let substringRange :NSRange! = myString.range(of: userText)
+            
+            if (substringRange.location == 0)
+            {
+                possibleMatches.append(csvRows[index][0])
+                diveIndex.append(index)
+            }
+        }
+        return possibleMatches
+    }
+    
+    func putColourFormattedTextInTextField(autocompleteResult: String, userQuery : String) {
+        let colouredString: NSMutableAttributedString = NSMutableAttributedString(string: userQuery + autocompleteResult)
+        colouredString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: NSRange(location: userQuery.count,length:autocompleteResult.count))
+        self.diveSiteBox.attributedText = colouredString
+    }
+    
+    func moveCaretToEndOfUserQueryPosition(userQuery : String) {
+        if let newPosition = self.diveSiteBox.position(from: self.diveSiteBox.beginningOfDocument, offset: userQuery.count) {
+            self.diveSiteBox.selectedTextRange = self.diveSiteBox.textRange(from: newPosition, to: newPosition)
+        }
+        let selectedRange: UITextRange? = diveSiteBox.selectedTextRange
+        diveSiteBox.offset(from: diveSiteBox.beginningOfDocument, to: (selectedRange?.start)!)
+    }
+    
+    func formatAutocompleteResult(substring: String, possibleMatches: [String]) -> String {
+        var autoCompleteResult = possibleMatches[0]
+        autoCompleteResult.removeSubrange(autoCompleteResult.startIndex..<autoCompleteResult.index(autoCompleteResult.startIndex, offsetBy: substring.count))
+        autoCompleteCharacterCount = autoCompleteResult.count
+        return autoCompleteResult
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == diveSiteBox {
+            for num in diveIndex {
+                if diveSiteBox.text == csvRows[num][0] {
+                    countryBox.text = csvRows[num][1]
+                    latBox.text = csvRows[num][4]
+                    longBox.text = csvRows[num][5]
+                }
+            }
+        }
+        
+        textField.textColor = .black
+        textField.resignFirstResponder()
+        autoCompleteCharacterCount = 0
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        switch textField {
+            
+        case diveNoBox:
+            print("DIVENOBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        case dateBox:
+            print("DATEBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        case diveSiteBox:
+            print("DIVEBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        case locationBox:
+            print("LOCATIONBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        case countryBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 100)
+            print("COUNTRYBOX")
+        case timeInBox:
+            print("TIMEINBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 30)
+        case timeOutBox:
+            print("TIMEOUTBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 30)
+        case depthBox:
+            print("DEPTHBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 130)
+        case btmTimeBox:
+            print("BTMTIMEBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 130)
+        case latBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 200)
+            print("LATBOX")
+        case longBox:
+            print("LONGBOX")
+            scrollView.contentOffset = CGPoint(x: 0, y: 200)
+        default:
+            print("Went with default")
+            //scrollView.contentOffset = CGPoint(x: 0, y: 100)
+        }
+    }
+    
+    func readDataFromCSV(fileName:String, fileType: String)-> String!{
+        guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
+            else {
+                print("RETURNED NIL YO")
+                return nil
+        }
+        do {
+            print("GOT HERE THO!")
+            var contents = try String(contentsOfFile: filepath, encoding: .utf8)
+            print("AND HERE!")
+            contents = cleanRows(file: contents)
+            print("HERE TOO!")
+            return contents
+        } catch {
+            print("File Read Error for file \(filepath)")
+            return nil
+        }
+    }
+    
+    func csv(data: String) -> [[String]] {
+        var result: [[String]] = []
+        let rows = data.components(separatedBy: "\n")
+        for row in rows {
+            let columns = row.components(separatedBy: ",")
+            result.append(columns)
+        }
+        return result
+    }
+    
+    func cleanRows(file:String)->String {
+        var cleanFile = file
+        cleanFile = cleanFile.replacingOccurrences(of: "\r", with: "\n")
+        cleanFile = cleanFile.replacingOccurrences(of: "\n\n", with: "\n")
+        //        cleanFile = cleanFile.replacingOccurrences(of: ";;", with: "")
+        //        cleanFile = cleanFile.replacingOccurrences(of: ";\n", with: "")
+        return cleanFile
     }
     
     // set up diveNo PickerView
@@ -320,7 +506,6 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     @objc func handleDatePicker(sender: UIDatePicker) {
         var date = Date()
         
-        
         if sender == timeInPicker {
             date = timeInPicker.date
         }
@@ -350,7 +535,6 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         let dateString = "\(month)/\(day)/\(year)"
         let timeString = "\(hourInt):\(minute) \(AMPM)"
     
-        
         if sender == timeInPicker {
             timeInString = timeString
             timeInHour = hour24
@@ -361,14 +545,12 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             if timeOutString.isEmpty == false {
                 if timeOutHour > timeInHour {
                     difference = (timeOutMin + 60) - timeInMin
-                    
                 }
                 else {
                     difference = timeOutMin - timeInMin
                 }
                 
                 btmTimeReal = String(difference)
-                
                 btmTimeBox.text = btmTimeReal
             }
         }
@@ -382,14 +564,12 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             if timeInString.isEmpty == false {
                 if timeOutHour > timeInHour {
                     difference = (timeOutMin + 60) - timeInMin
-                    
                 }
                 else {
                     difference = timeOutMin - timeInMin
                 }
                 
                 btmTimeReal = String(difference)
-                
                 btmTimeBox.text = btmTimeReal
         }
         }
