@@ -17,7 +17,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     var divesList: [Dive] = []
     var dives: [Dive] = []
     let diveSegueIdentifier = "ShowDiveSegue"
-    let diveInstance = Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+    let diveInstance = Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
     
     @IBAction func unwindToDiveList(unwindSegue: UIStoryboardSegue) {
         
@@ -74,11 +74,12 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
                 let diveNotes = record.value(forKey: "DiveNotes") as! String?
                 let airTemp = record.value(forKey: "AirTemp") as! String?
                 let waterTemp = record.value(forKey: "WaterTemp") as! String?
+                let visibility = record.value(forKey: "Visibility") as! String?
                 let weight = record.value(forKey: "Weight") as! String?
                 let startTankPressure = record.value(forKey: "StartTankPressure") as! String?
                 let endTankPressure = record.value(forKey: "EndTankPressure") as! String?
                 
-                let diveInstance = Dive(diveNo: diveNo, date: date, diveSite: diveSite, location: location, country: country, depth: depth, bottomTime: bottomTime, latitude: latitude, longitude: longitude, diveType: diveType, timeIn: timeIn, timeOut: timeOut, surfaceInterval: surfaceInterval, safetyStopDepth: safetyStopDepth, safetyStopDuration: safetyStopDuration, diveMasterName: diveMasterName, diveMasterNum: diveMasterNum, diveNotes: diveNotes, airTemp: airTemp, waterTemp: waterTemp, weight: weight, startTankPressure: startTankPressure, endTankPressure: endTankPressure)
+                let diveInstance = Dive(diveNo: diveNo, date: date, diveSite: diveSite, location: location, country: country, depth: depth, bottomTime: bottomTime, latitude: latitude, longitude: longitude, diveType: diveType, timeIn: timeIn, timeOut: timeOut, surfaceInterval: surfaceInterval, safetyStopDepth: safetyStopDepth, safetyStopDuration: safetyStopDuration, diveMasterName: diveMasterName, diveMasterNum: diveMasterNum, diveNotes: diveNotes, airTemp: airTemp, waterTemp: waterTemp, visibility: visibility, weight: weight, startTankPressure: startTankPressure, endTankPressure: endTankPressure)
                 
                 self.divesList.append(diveInstance)
                 
@@ -148,6 +149,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         var diveNotes: String? = nil
         var airTemp: String? = nil
         var waterTemp: String? = nil
+        var visibility: String? = nil
         var weight: String? = nil
         var startTankPressure: String? = nil
         var endTankPressure: String? = nil
@@ -179,17 +181,17 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     func initialData() {
         
         // Add initial dive data
-        let dive1 = Dive(diveNo: "1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let dive1 = Dive(diveNo: "1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
 
-        let dive2 = Dive(diveNo: "2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let dive2 = Dive(diveNo: "2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
 
-        let dive3 = Dive(diveNo: "3", date: "6/4/17", diveSite: "Twins", location: "Koh Tao", country: "Thailand", depth: "15.6m", bottomTime: "40 min", latitude: 10.116782, longitude: 99.813431, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let dive3 = Dive(diveNo: "3", date: "6/4/17", diveSite: "Twins", location: "Koh Tao", country: "Thailand", depth: "15.6m", bottomTime: "40 min", latitude: 10.116782, longitude: 99.813431, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
 
-        let dive4 = Dive(diveNo: "4", date: "6/5/17", diveSite: "Chumphon Pinnacle", location: "Koh Tao", country: "Thailand", depth: "30.1m", bottomTime: "29 min", latitude: 10.171483, longitude: 99.778350, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let dive4 = Dive(diveNo: "4", date: "6/5/17", diveSite: "Chumphon Pinnacle", location: "Koh Tao", country: "Thailand", depth: "30.1m", bottomTime: "29 min", latitude: 10.171483, longitude: 99.778350, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
 
-        let dive5 = Dive(diveNo: "5", date: "7/27/17", diveSite: "Sental Point", location: "Nusa Penida", country: "Indonesia", depth: "25m", bottomTime: "36 min", latitude: -8.675817, longitude: 115.524417, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let dive5 = Dive(diveNo: "5", date: "7/27/17", diveSite: "Sental Point", location: "Nusa Penida", country: "Indonesia", depth: "25m", bottomTime: "36 min", latitude: -8.675817, longitude: 115.524417, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
 
-        let dive6 = Dive(diveNo: "6", date: "7/28/17", diveSite: "Pura Ped", location: "Nusa Penida", country: "Indonesia", depth: "25.3m", bottomTime: "50 min", latitude: -8.671667, longitude: 115.503900, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let dive6 = Dive(diveNo: "6", date: "7/28/17", diveSite: "Pura Ped", location: "Nusa Penida", country: "Indonesia", depth: "25.3m", bottomTime: "50 min", latitude: -8.671667, longitude: 115.503900, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
 
         divesList.append(dive1)
         divesList.append(dive2)

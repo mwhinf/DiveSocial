@@ -12,7 +12,7 @@ import CloudKit
 class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Create dummy Dive instance to allow access to properties
-    let diveInstanceB = DiveListController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+    let diveInstanceB = DiveListController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
     
     // Initialize empty dive lists
     var divesList: [DiveListController.Dive] = []
@@ -96,7 +96,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             longDouble = 90.402
         }
         
-        let diveTemp = DiveListController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: latDouble!, longitude: longDouble!, diveType: diveTypeText, timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", weight: "", startTankPressure: "", endTankPressure: "")
+        let diveTemp = DiveListController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: latDouble!, longitude: longDouble!, diveType: diveTypeText, timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
         
         let privateDatabase = CKContainer.default().privateCloudDatabase
         
@@ -111,6 +111,18 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         diveToSave.setObject(countryText as CKRecordValue, forKey: "Country")
         diveToSave.setObject(btmTimeText as CKRecordValue, forKey: "BottomTime")
         diveToSave.setObject(depthText as CKRecordValue, forKey: "Depth")
+        diveToSave.setObject(ssDepthText as CKRecordValue, forKey: "SafetyStopDepth")
+        diveToSave.setObject(ssDurationText as CKRecordValue, forKey: "SafetyStopDuration")
+        diveToSave.setObject(surfaceIntervalText as CKRecordValue, forKey: "SurfaceInterval")
+        diveToSave.setObject(divemasterText as CKRecordValue, forKey: "DiveMasterName")
+        diveToSave.setObject(divemasterNumText as CKRecordValue, forKey: "DiveMasterNum")
+        diveToSave.setObject(airTempText as CKRecordValue, forKey: "AirTemp")
+        diveToSave.setObject(waterTempText as CKRecordValue, forKey: "WaterTemp")
+        diveToSave.setObject(visibilityText as CKRecordValue, forKey: "Visibility")
+        diveToSave.setObject(weightText as CKRecordValue, forKey: "Weight")
+        diveToSave.setObject(tpStartText as CKRecordValue, forKey: "StartTankPressure")
+        diveToSave.setObject(tpEndText as CKRecordValue, forKey: "EndTankPressure")
+        diveToSave.setObject(notesText as CKRecordValue, forKey: "DiveNotes")
         
         privateDatabase.save(diveToSave) { (record, error) -> Void in
             
