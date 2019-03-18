@@ -77,6 +77,8 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         let longText = longBox.unwrappedText
         var latDouble = Double(latText)
         var longDouble = Double(longText)
+        let timeInText = timeInBox.unwrappedText
+        let timeOutText = timeOutBox.unwrappedText
         let diveTypeText = diveTypeBox.unwrappedText
         let ssDepthText = ssDepthBox.unwrappedText
         let ssDurationText = ssDepthBox.unwrappedText
@@ -111,6 +113,8 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         diveToSave.setObject(countryText as CKRecordValue, forKey: "Country")
         diveToSave.setObject(btmTimeText as CKRecordValue, forKey: "BottomTime")
         diveToSave.setObject(depthText as CKRecordValue, forKey: "Depth")
+        diveToSave.setObject(timeInText as CKRecordValue, forKey: "TimeIn")
+        diveToSave.setObject(timeOutText as CKRecordValue, forKey: "TimeOut")
         diveToSave.setObject(ssDepthText as CKRecordValue, forKey: "SafetyStopDepth")
         diveToSave.setObject(ssDurationText as CKRecordValue, forKey: "SafetyStopDuration")
         diveToSave.setObject(surfaceIntervalText as CKRecordValue, forKey: "SurfaceInterval")
@@ -125,7 +129,11 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         diveToSave.setObject(notesText as CKRecordValue, forKey: "DiveNotes")
         
         privateDatabase.save(diveToSave) { (record, error) -> Void in
-            
+            guard error == nil else{
+                print("There is an error!")
+                print(error?.localizedDescription as Any)
+                return
+            }
         }
         
         divesList.append(diveTemp)

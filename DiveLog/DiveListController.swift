@@ -31,7 +31,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.rowHeight = 140;
         
         if dives.isEmpty == true {
-            initialData()
+            //initialData()
             fetchDives()
             dives = diveInstance.loadFromFile()
         }
@@ -171,7 +171,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
             let archiveURL = documentsDirectory.appendingPathComponent("diveList").appendingPathExtension("plist")
             if let retrievedDivesData = try? Data(contentsOf: archiveURL),
                 let decodedDives = try? propertyListDecoder.decode(Array<Dive>.self, from: retrievedDivesData) {
-                print(decodedDives)
+                //print(decodedDives)
                 temp = decodedDives
             }
             return temp
@@ -179,6 +179,8 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func initialData() {
+        
+        print("INITIAL DATA CALLED")
         
         // Add initial dive data
         let dive1 = Dive(diveNo: "1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
