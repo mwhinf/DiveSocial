@@ -1307,7 +1307,4 @@
     <resources>
         <image name="icons8-europe-30" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="8dm-yC-jFL"/>
-    </inferredMetricsTieBreakers>
 </document>

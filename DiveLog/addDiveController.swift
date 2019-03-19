@@ -358,8 +358,8 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             for num in diveIndex {
                 if diveSiteBox.text == csvRows[num][0] {
                     countryBox.text = csvRows[num][1]
-                    latBox.text = csvRows[num][4]
-                    longBox.text = csvRows[num][5]
+                    latBox.text = csvRows[num][5]
+                    longBox.text = csvRows[num][4]
                 }
             }
         }
