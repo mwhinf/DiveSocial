@@ -60,9 +60,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     @IBOutlet weak var weightBox: UITextField!
     @IBOutlet weak var tpStartBox: UITextField!
     @IBOutlet weak var tpEndBox: UITextField!
-    
     @IBOutlet weak var notesBox: UITextField!
-    
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
@@ -213,6 +211,13 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         // set up Lat/Long textFields
         latBox.delegate = self
         longBox.delegate = self
+        
+        
+        locationBox.autocapitalizationType = UITextAutocapitalizationType.words
+        countryBox.autocapitalizationType = UITextAutocapitalizationType.words
+        diveTypeBox.autocapitalizationType = UITextAutocapitalizationType.words
+        divemasterBox.autocapitalizationType = UITextAutocapitalizationType.words
+        notesBox.autocapitalizationType = UITextAutocapitalizationType.sentences
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -366,6 +371,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         textField.textColor = .black
         textField.resignFirstResponder()
+        textField.autocapitalizationType = UITextAutocapitalizationType.sentences
         autoCompleteCharacterCount = 0
         return true
     }
