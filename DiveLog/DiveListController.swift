@@ -235,7 +235,13 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         cell.diveNoLabel.text = "Dive No." + dives[indexPath.section].diveNo
         cell.dateLabel.text = dives[indexPath.section].date
         cell.diveSiteLabel.text = dives[indexPath.section].diveSite
-        cell.locationLabel.text = dives[indexPath.section].location + ","
+        
+        if dives[indexPath.section].location.isEmpty == false {
+            cell.locationLabel.text = dives[indexPath.section].location + ","
+        }
+        else {
+            cell.locationLabel.text = dives[indexPath.section].location
+        }
         cell.countryLabel.text = dives[indexPath.section].country
         cell.depthLabel.text = dives[indexPath.section].depth
         cell.btmTimeLabel.text = dives[indexPath.section].bottomTime
@@ -247,6 +253,58 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+            
+            let sectionToDelete: IndexSet = [indexPath.section]
+            
+            let numba = self.dives.count - indexPath.section - 1
+            
+            self.dives.remove(at: indexPath.section)
+            self.divesList.remove(at: numba)
+            
+            tableView.deleteSections(sectionToDelete, with: .fade)
+            
+        let privateDatabase = CKContainer.default().privateCloudDatabase
+        
+        let math = self.dives.count + 1 - indexPath.section
+        
+        let diveNoForSearch = String(math)
+        
+        let divePredicate = NSPredicate(format: "DiveNo == %@", diveNoForSearch)
+            
+        let query = CKQuery(recordType: "Dive", predicate: divePredicate)
+        
+        privateDatabase.perform(query, inZoneWith: nil) { (records, error) in
+                records?.forEach({ (record) in
+                    
+                guard error == nil else{
+                    print("There is an error!")
+                    print(error?.localizedDescription as Any)
+                    return
+                }
+            
+              let site = record.value(forKey: "DiveSite") as! String
+              let recordID = record.recordID
+              print(site)
+                    
+                    privateDatabase.delete(withRecordID: recordID, completionHandler: { (recordID, error) -> Void in
+                        guard recordID != nil else {
+                            print("Error")
+                            return
+                        }
+                        print("Successfully deleted record")
+                    }
+            )
+            })
+        }
+        }
+        
+        return [delete]
+    }
 }
 
 extension UITextField {

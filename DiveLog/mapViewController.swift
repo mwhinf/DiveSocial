@@ -111,7 +111,14 @@ extension mapViewController: GMSMapViewDelegate{
         infoWindow.diveNoLabel.text = "Dive No. " + dives[tempNum!].diveNo
         infoWindow.dateLabel.text = dives[tempNum!].date
         infoWindow.diveSiteLabel.text = dives[tempNum!].diveSite
-        infoWindow.locationLabel.text = dives[tempNum!].location + ","
+        
+        if dives[tempNum!].location.isEmpty == false {
+            infoWindow.locationLabel.text = dives[tempNum!].location + ","
+        }
+        else {
+            infoWindow.locationLabel.text = dives[tempNum!].location
+        }
+        
         infoWindow.countryLabel.text = dives[tempNum!].country
         infoWindow.depthLabel.text = dives[tempNum!].depth
         infoWindow.btmTimeLabel.text = dives[tempNum!].bottomTime
@@ -120,10 +127,10 @@ extension mapViewController: GMSMapViewDelegate{
     }
     
     
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)  {
+    //func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)  {
         
-        self.performSegue(withIdentifier: "infoWindowSegue", sender: nil)
-    }
+    //    self.performSegue(withIdentifier: "infoWindowSegue", sender: nil)
+   // }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("weeeee")

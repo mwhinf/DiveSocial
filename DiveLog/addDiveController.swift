@@ -133,8 +133,32 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
                 return
             }
         }
+        let counter = divesList.count - 1
         
-        divesList.append(diveTemp)
+        let diveNum = Int(diveTemp.diveNo)
+        
+        let otherDiveNum = Int(divesList[counter].diveNo)
+        
+        if diveNum! >= otherDiveNum! {
+            divesList.append(diveTemp)
+        }
+        else {
+            let position = Int(diveTemp.diveNo)
+            let positionMod = position! - 1
+            
+            divesList.insert(diveTemp, at: positionMod)
+            
+        }
+        
+        
+        
+        
+        
+        //divesList.append(diveTemp)
+        
+        
+        
+        
         diveInstanceB.saveToFile(dives: divesList)
         dives = diveInstanceB.loadFromFile()
         
@@ -212,7 +236,21 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         latBox.delegate = self
         longBox.delegate = self
         
+        // set up rest of textField delegates
+        ssDepthBox.delegate = self
+        ssDurationBox.delegate = self
+        surfaceIntervalBox.delegate = self
+        divemasterBox.delegate = self
+        divemasterNumBox.delegate = self
+        airTempBox.delegate = self
+        waterTempBox.delegate = self
+        visibilityBox.delegate = self
+        weightBox.delegate = self
+        tpStartBox.delegate = self
+        tpEndBox.delegate = self
+        notesBox.delegate = self
         
+        // set up autocapitalization for textfields
         locationBox.autocapitalizationType = UITextAutocapitalizationType.words
         countryBox.autocapitalizationType = UITextAutocapitalizationType.words
         diveTypeBox.autocapitalizationType = UITextAutocapitalizationType.words
@@ -362,6 +400,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         if textField == diveSiteBox {
             for num in diveIndex {
                 if diveSiteBox.text == csvRows[num][0] {
+                    locationBox.text = csvRows[num][3]
                     countryBox.text = csvRows[num][1]
                     latBox.text = csvRows[num][5]
                     longBox.text = csvRows[num][4]
@@ -397,22 +436,48 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             print("COUNTRYBOX")
         case timeInBox:
             print("TIMEINBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 30)
+            scrollView.contentOffset = CGPoint(x: 0, y: 320)
         case timeOutBox:
             print("TIMEOUTBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 30)
+            scrollView.contentOffset = CGPoint(x: 0, y: 320)
         case depthBox:
             print("DEPTHBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 130)
+            scrollView.contentOffset = CGPoint(x: 0, y: 410)
         case btmTimeBox:
             print("BTMTIMEBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 130)
+            scrollView.contentOffset = CGPoint(x: 0, y: 410)
         case latBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 200)
+            scrollView.contentOffset = CGPoint(x: 0, y: 230)
             print("LATBOX")
         case longBox:
             print("LONGBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 200)
+            scrollView.contentOffset = CGPoint(x: 0, y: 230)
+        case ssDepthBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 490)
+            print("SSDEPTHBOX")
+        case ssDurationBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 490)
+        case surfaceIntervalBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 560)
+            print("SURFACE")
+        case divemasterBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 660)
+        case divemasterNumBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 660)
+        case airTempBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 750)
+        case waterTempBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 750)
+        case visibilityBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 830)
+        case weightBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 830)
+        case tpStartBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 920)
+        case tpEndBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 920)
+        case notesBox:
+            scrollView.contentOffset = CGPoint(x: 0, y: 1030)
         default:
             print("Went with default")
             //scrollView.contentOffset = CGPoint(x: 0, y: 100)

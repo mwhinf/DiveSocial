@@ -10,6 +10,7 @@
 		237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */; };
 		530EE05920C9AC2C00F708DF /* addDiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530EE05820C9AC2B00F708DF /* addDiveController.swift */; };
 		5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343BEF520C9D9D7006298B3 /* DiveListController.swift */; };
+		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
 		538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */; };
 		538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD6120B4A1A300F58FB9 /* ViewController.swift */; };
 		538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6320B4A1A300F58FB9 /* Main.storyboard */; };
@@ -20,7 +21,6 @@
 		5396DF2A211A09A900361443 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5396DF29211A09A900361443 /* CloudKit.framework */; };
 		5396DF2E211B5C0B00361443 /* Thailand_DiveSite_GPS.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */; };
 		5396DF30211B5D7800361443 /* Master_DiveSites_List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5396DF2F211B5D7800361443 /* Master_DiveSites_List.csv */; };
-		5396DF52211B730100361443 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5396DF51211B730100361443 /* testerbook.csv */; };
 		539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A8E1920B6674E0061464F /* TableViewCell.swift */; };
 		539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */; };
 		539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B3D1220C85536000F18BC /* MapMarkerWindow.swift */; };
@@ -56,6 +56,7 @@
 		0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.release.xcconfig"; sourceTree = "<group>"; };
 		530EE05820C9AC2B00F708DF /* addDiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDiveController.swift; sourceTree = "<group>"; };
 		5343BEF520C9D9D7006298B3 /* DiveListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveListController.swift; sourceTree = "<group>"; };
+		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
 		538DCD5C20B4A1A300F58FB9 /* DiveLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiveLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		538DCD6120B4A1A300F58FB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		5396DF29211A09A900361443 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Thailand_DiveSite_GPS.csv; sourceTree = "<group>"; };
 		5396DF2F211B5D7800361443 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Master_DiveSites_List.csv; path = ../../../Master_DiveSites_List.csv; sourceTree = "<group>"; };
-		5396DF51211B730100361443 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testerbook.csv; path = ../../../testerbook.csv; sourceTree = "<group>"; };
 		539A8E1920B6674E0061464F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
 		539B3D1220C85536000F18BC /* MapMarkerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerWindow.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		538DCD5E20B4A1A300F58FB9 /* DiveLog */ = {
 			isa = PBXGroup;
 			children = (
-				5396DF51211B730100361443 /* testerbook.csv */,
+				5381FA282241F74E00C9ABF0 /* testerbook.csv */,
 				5396DF2F211B5D7800361443 /* Master_DiveSites_List.csv */,
 				5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */,
 				5396DF28211A098F00361443 /* DiveLog.entitlements */,
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				538DCD6A20B4A1A600F58FB9 /* LaunchScreen.storyboard in Resources */,
-				5396DF52211B730100361443 /* testerbook.csv in Resources */,
+				5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */,
 				538DCD6720B4A1A600F58FB9 /* Assets.xcassets in Resources */,
 				538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */,
 				5396DF30211B5D7800361443 /* Master_DiveSites_List.csv in Resources */,
