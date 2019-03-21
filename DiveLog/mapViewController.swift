@@ -43,7 +43,7 @@ class mapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933)
+        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
         
         /*let dive2 = Dive(diveNo: "Dive No.2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383)
         
@@ -108,10 +108,17 @@ extension mapViewController: GMSMapViewDelegate{
         infoWindow.layer.cornerRadius = 6
         infoWindow.layer.borderWidth = 2
         infoWindow.layer.borderColor = UIColor.white.cgColor
-        infoWindow.diveNoLabel.text = dives[tempNum!].diveNo
+        infoWindow.diveNoLabel.text = "Dive No. " + dives[tempNum!].diveNo
         infoWindow.dateLabel.text = dives[tempNum!].date
         infoWindow.diveSiteLabel.text = dives[tempNum!].diveSite
-        infoWindow.locationLabel.text = dives[tempNum!].location + ","
+        
+        if dives[tempNum!].location.isEmpty == false {
+            infoWindow.locationLabel.text = dives[tempNum!].location + ","
+        }
+        else {
+            infoWindow.locationLabel.text = dives[tempNum!].location
+        }
+        
         infoWindow.countryLabel.text = dives[tempNum!].country
         infoWindow.depthLabel.text = dives[tempNum!].depth
         infoWindow.btmTimeLabel.text = dives[tempNum!].bottomTime
@@ -120,10 +127,10 @@ extension mapViewController: GMSMapViewDelegate{
     }
     
     
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)  {
+    //func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)  {
         
-        self.performSegue(withIdentifier: "infoWindowSegue", sender: nil)
-    }
+    //    self.performSegue(withIdentifier: "infoWindowSegue", sender: nil)
+   // }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("weeeee")

@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +17,38 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fishIcon1" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-Tq-GOI">
+                                <rect key="frame" x="-100" y="217" width="574" height="499"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiveSocial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79D-oq-MJg">
+                                <rect key="frame" x="49" y="178" width="276" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68.5" id="9z3-tb-6cX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="57"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.03763814293" green="0.47404994569999998" blue="0.80859375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jsd-Tq-GOI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="197" id="DDJ-jw-1Pt"/>
+                            <constraint firstItem="79D-oq-MJg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FY7-eG-XnP"/>
+                            <constraint firstAttribute="trailing" secondItem="Jsd-Tq-GOI" secondAttribute="trailing" constant="-99" id="dZs-Mx-0r2"/>
+                            <constraint firstItem="Jsd-Tq-GOI" firstAttribute="top" secondItem="79D-oq-MJg" secondAttribute="bottom" constant="-30" id="fhp-DA-pg4"/>
+                            <constraint firstItem="Jsd-Tq-GOI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-100" id="kU5-qa-yom"/>
+                            <constraint firstAttribute="bottom" secondItem="Jsd-Tq-GOI" secondAttribute="bottom" constant="-49" id="shp-zm-dWa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fishIcon1" width="512" height="512"/>
+    </resources>
 </document>
