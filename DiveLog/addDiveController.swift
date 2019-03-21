@@ -133,25 +133,28 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
                 return
             }
         }
-        let counter = divesList.count - 1
         
-        let diveNum = Int(diveTemp.diveNo)
         
-        let otherDiveNum = Int(divesList[counter].diveNo)
+        if divesList.count > 0 {
+            let counter = divesList.count - 1
+            let diveNum = Int(diveTemp.diveNo)
+            let otherDiveNum = Int(divesList[counter].diveNo)
         
-        if diveNum! >= otherDiveNum! {
+            if diveNum! >= otherDiveNum! {
+                divesList.append(diveTemp)
+            }
+            else {
+                let position = Int(diveTemp.diveNo)
+                let positionMod = position! - 1
+            
+                divesList.insert(diveTemp, at: positionMod)
+            
+            }
+        
+            }
+        else {
             divesList.append(diveTemp)
         }
-        else {
-            let position = Int(diveTemp.diveNo)
-            let positionMod = position! - 1
-            
-            divesList.insert(diveTemp, at: positionMod)
-            
-        }
-        
-        
-        
         
         
         //divesList.append(diveTemp)

@@ -32,8 +32,11 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         
         if dives.isEmpty == true {
             //initialData()
+            
             fetchDives()
-            dives = diveInstance.loadFromFile()
+            print(dives.count)
+            //dives = diveInstance.loadFromFile()
+            print(dives.count)
         }
     }
     
@@ -262,6 +265,10 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
             let sectionToDelete: IndexSet = [indexPath.section]
             
             let numba = self.dives.count - indexPath.section - 1
+            
+            print("DIVES THEN DIVESLIST")
+            print(self.dives.count)
+            print(self.divesList.count)
             
             self.dives.remove(at: indexPath.section)
             self.divesList.remove(at: numba)
