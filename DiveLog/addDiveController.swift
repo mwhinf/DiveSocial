@@ -32,6 +32,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     var timer = Timer()
     var csvRows: [[String]] = []
     var diveIndex: [Int] = []
+    var scrollViewOffset = CGPoint()
     
     // Set up IBOutlets and IBActions
     @IBOutlet weak var scrollView: UIScrollView!
@@ -240,6 +241,10 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         longBox.delegate = self
         
         // set up rest of textField delegates
+        diveTypeBox.delegate = self
+        diveSiteBox.delegate = self
+        locationBox.delegate = self
+        countryBox.delegate = self
         ssDepthBox.delegate = self
         ssDurationBox.delegate = self
         surfaceIntervalBox.delegate = self
@@ -312,8 +317,13 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
                 diveSiteBox.text = newstring
             }
         }
-        scrollView.contentOffset = CGPoint(x: 0, y: 0)
+        print("SCROLL OFFSET")
+        print(scrollViewOffset)
+        print(scrollView.contentOffset)
         view.endEditing(true)
+        scrollView.setContentOffset(scrollViewOffset, animated: true)
+//        scrollView.contentOffset = scrollViewOffset
+//        scrollView.contentOffset = CGPoint(x: 0, y: 0)
     }
     
     // Set up Dive Site textField autocomplete
@@ -424,63 +434,112 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             
         case diveNoBox:
             print("DIVENOBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 0)
         case dateBox:
             print("DATEBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 0)
+        case diveTypeBox:
+            print("DIVETYPEBOX")
+            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 0)
         case diveSiteBox:
             print("DIVEBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
         case locationBox:
             print("LOCATIONBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 0)
         case countryBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 100)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 100)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 100), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 100)
             print("COUNTRYBOX")
         case timeInBox:
             print("TIMEINBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 320)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 320)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 320), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 320)
         case timeOutBox:
             print("TIMEOUTBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 320)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 320)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 320), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 320)
         case depthBox:
             print("DEPTHBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 410)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 410)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 410), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 410)
         case btmTimeBox:
             print("BTMTIMEBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 410)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 410)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 410), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 410)
         case latBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 230)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 230)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 230), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 230)
             print("LATBOX")
         case longBox:
             print("LONGBOX")
-            scrollView.contentOffset = CGPoint(x: 0, y: 230)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 230)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 230), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 230)
         case ssDepthBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 490)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 490)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 490), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 490)
             print("SSDEPTHBOX")
         case ssDurationBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 490)
+            scrollViewOffset = CGPoint(x: 0, y: 490)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 490), animated:true)
         case surfaceIntervalBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 560)
+            scrollViewOffset = CGPoint(x: 0, y: 560)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 560)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 560), animated: true)
             print("SURFACE")
         case divemasterBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 660)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 660)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 660), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 660)
         case divemasterNumBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 660)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 660)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 660), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 660)
         case airTempBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 750)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 750)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 750), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 750)
         case waterTempBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 750)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 750)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 750), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 750)
         case visibilityBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 830)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 830)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 830), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 830)
         case weightBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 830)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 830)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 830), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 830)
         case tpStartBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 920)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 920)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 920), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 920)
         case tpEndBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 920)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 920)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 920), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 920)
         case notesBox:
-            scrollView.contentOffset = CGPoint(x: 0, y: 1030)
+            //scrollView.contentOffset = CGPoint(x: 0, y: 1030)
+            scrollView.setContentOffset(CGPoint(x: 0, y: 1030), animated:true)
+            scrollViewOffset = CGPoint(x: 0, y: 1030)
         default:
             print("Went with default")
             //scrollView.contentOffset = CGPoint(x: 0, y: 100)

@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="582"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D85-xK-b2P">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1399"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1599"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSr-fF-pNS">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
@@ -808,6 +808,13 @@
                                                     <constraint firstItem="r3D-th-c2b" firstAttribute="top" secondItem="zlO-EW-H2g" secondAttribute="top" constant="8" id="evA-58-xZH"/>
                                                     <constraint firstAttribute="trailing" secondItem="CbW-AV-j3v" secondAttribute="trailing" constant="50" id="rES-qf-zjU"/>
                                                     <constraint firstItem="r3D-th-c2b" firstAttribute="leading" secondItem="zlO-EW-H2g" secondAttribute="leading" constant="58" id="xjt-Af-5f1"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qe-Vx-aqd">
+                                                <rect key="frame" x="0.0" y="1399" width="375" height="200"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="otr-Y0-nKC"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
