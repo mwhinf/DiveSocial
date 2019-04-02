@@ -43,8 +43,8 @@ class mapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
-        
+//        let dive1 = DiveListController.Dive(diveNo: "Dive No.1", date: "12/26/13", diveSite: "Jardines", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "56 min", latitude: 20.624050, longitude: -87.018933, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
+//
         /*let dive2 = Dive(diveNo: "Dive No.2", date: "12/26/13", diveSite: "Moc-Che Shallow", location: "Playa del Carmen", country: "Mexico", depth: "15m", bottomTime: "46 min", latitude: 20.689317, longitude: -86.931383)
         
         let dive3 = Dive(diveNo: "Dive No.3", date: "6/4/17", diveSite: "Twins", location: "Koh Tao", country: "Thailand", depth: "15.6m", bottomTime: "40 min", latitude: 10.116782, longitude: 99.813431)
@@ -61,22 +61,35 @@ class mapViewController: UIViewController {
         dives.append(dive4)
         dives.append(dive5)
         dives.append(dive6)*/
+        var camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
         
-        let camera = GMSCameraPosition.camera(withLatitude: dive1.latitude, longitude: dive1.longitude, zoom: 2.0)
+        if dives.last != nil {
+           camera = GMSCameraPosition.camera(withLatitude: dives.last!.latitude, longitude: dives.last!.longitude, zoom: 2.0)
+        }
+        else {
+            camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
+        }
         
         mapView.camera = camera
         mapView.delegate = self
         mapView.mapType = GMSMapViewType.hybrid
         mapView.settings.consumesGesturesInView = false
+//        markerPosition = GMSMarker()
+//        mapView.selectedMarker = markerPosition
     }
     
     func showMarker(){
         var counter = 0
         for dive in dives {
+            
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: dive.latitude, longitude: dive.longitude)
             marker.title = String(counter)
             marker.map = mapView
+            if counter == dives.count - 1 {
+                mapView.selectedMarker = marker
+            
+            }
             counter+=1
             print(counter)
         }
@@ -133,7 +146,6 @@ extension mapViewController: GMSMapViewDelegate{
    // }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("weeeee")
         
         let tempIndex = Int(marker.title!)
         

@@ -317,9 +317,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
                 diveSiteBox.text = newstring
             }
         }
-        print("SCROLL OFFSET")
-        print(scrollViewOffset)
-        print(scrollView.contentOffset)
+        
         view.endEditing(true)
         scrollView.setContentOffset(scrollViewOffset, animated: true)
 //        scrollView.contentOffset = scrollViewOffset
@@ -415,8 +413,8 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
                 if diveSiteBox.text == csvRows[num][0] {
                     locationBox.text = csvRows[num][3]
                     countryBox.text = csvRows[num][1]
-                    latBox.text = csvRows[num][5]
-                    longBox.text = csvRows[num][4]
+                    latBox.text = csvRows[num][4]
+                    longBox.text = csvRows[num][5]
                 }
             }
         }

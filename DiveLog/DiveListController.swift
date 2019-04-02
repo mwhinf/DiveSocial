@@ -29,6 +29,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         self.tableView.rowHeight = 140;
+        self.tableView.allowsSelection = false
         
         if dives.isEmpty == true {
             //initialData()

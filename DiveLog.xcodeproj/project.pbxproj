@@ -28,6 +28,8 @@
 		53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A185D220BF0DB3009301DF /* mapViewController.swift */; };
 		53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564F820D347DA0019C414 /* GPSViewController.swift */; };
 		53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */; };
+		53D46A972253F712006A34E7 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D46A962253F712006A34E7 /* HelpViewController.swift */; };
+		53D46A992253F9C1006A34E7 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D46A982253F9C1006A34E7 /* LinkButton.swift */; };
 		53E07B7420DD597300625188 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7320DD597300625188 /* LoginViewController.swift */; };
 		53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7520DDF1E500625188 /* ConfirmButton.swift */; };
 		53E07B7820DDF22500625188 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7720DDF22500625188 /* CancelButton.swift */; };
@@ -81,6 +83,8 @@
 		53A185D220BF0DB3009301DF /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		53A564F820D347DA0019C414 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		53D46A962253F712006A34E7 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = /Users/michaelwhinfrey/Desktop/swift/DiveLog/DiveLog/HelpViewController.swift; sourceTree = "<absolute>"; };
+		53D46A982253F9C1006A34E7 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		53E07B7320DD597300625188 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		53E07B7520DDF1E500625188 /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
 		53E07B7720DDF22500625188 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
@@ -159,9 +163,11 @@
 				538DCD6120B4A1A300F58FB9 /* ViewController.swift */,
 				53E07B7320DD597300625188 /* LoginViewController.swift */,
 				53E3745420BFB6E5000299DB /* LoginView.swift */,
+				53D46A962253F712006A34E7 /* HelpViewController.swift */,
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
 				539A8E1920B6674E0061464F /* TableViewCell.swift */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
+				53D46A982253F9C1006A34E7 /* LinkButton.swift */,
 				53E07B7520DDF1E500625188 /* ConfirmButton.swift */,
 				53E07B7720DDF22500625188 /* CancelButton.swift */,
 				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
@@ -393,6 +399,8 @@
 				53E07B7820DDF22500625188 /* CancelButton.swift in Sources */,
 				53E3745520BFB6E5000299DB /* LoginView.swift in Sources */,
 				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,
+				53D46A972253F712006A34E7 /* HelpViewController.swift in Sources */,
+				53D46A992253F9C1006A34E7 /* LinkButton.swift in Sources */,
 				539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */,
 				539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */,
 				53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */,
