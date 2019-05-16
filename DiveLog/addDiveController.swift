@@ -8,15 +8,13 @@
 
 import UIKit
 import CloudKit
+import CoreData
 
 class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    // Create dummy Dive instance to allow access to properties
-    let diveInstanceB = DiveListController.Dive(diveNo: "", date: "", diveSite: "", location: "", country: "", depth: "", bottomTime: "", latitude: 0, longitude: 0, diveType: "", timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
+    var dives: [NSManagedObject] = []
     
-    // Initialize empty dive lists
-    var divesList: [DiveListController.Dive] = []
-    var dives: [DiveListController.Dive] = []
+    var coreDataManager: CoreDataManager!
     
     // Initialize global variables
     var lat = ""
@@ -97,77 +95,49 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             longDouble = 90.402
         }
         
-        let diveTemp = DiveListController.Dive(diveNo: diveNoText, date: dateText, diveSite: diveSiteText, location: locationText, country: countryText, depth: depthText, bottomTime: btmTimeText, latitude: latDouble!, longitude: longDouble!, diveType: diveTypeText, timeIn: "", timeOut: "", surfaceInterval: "", safetyStopDepth: "", safetyStopDuration: "", diveMasterName: "", diveMasterNum: "", diveNotes: "", airTemp: "", waterTemp: "", visibility: "", weight: "", startTankPressure: "", endTankPressure: "")
+//        guard let appDelegate =
+//            UIApplication.shared.delegate as? AppDelegate else {
+//                return
+//        }
+//
+//
+//
+//       let managedContext = appDelegate.persistentContainer.viewContext
         
-        let privateDatabase = CKContainer.default().privateCloudDatabase
+        coreDataManager = CoreDataManager(modelName: "DiveModel")
         
-        let diveToSave = CKRecord(recordType: "Dive")
+        let managedContext = coreDataManager.managedObjectContext
         
-        diveToSave.setObject(dateText as CKRecordValue, forKey: "Date")
-        diveToSave.setObject(diveSiteText as CKRecordValue, forKey: "DiveSite")
-        diveToSave.setObject(locationText as CKRecordValue, forKey: "Location")
-        diveToSave.setObject(diveNoText as CKRecordValue, forKey: "DiveNo")
-        diveToSave.setObject(latDouble as CKRecordValue?, forKey: "Latitude")
-        diveToSave.setObject(longDouble as CKRecordValue?, forKey: "Longitude")
-        diveToSave.setObject(countryText as CKRecordValue, forKey: "Country")
-        diveToSave.setObject(btmTimeText as CKRecordValue, forKey: "BottomTime")
-        diveToSave.setObject(depthText as CKRecordValue, forKey: "Depth")
-        diveToSave.setObject(timeInText as CKRecordValue, forKey: "TimeIn")
-        diveToSave.setObject(timeOutText as CKRecordValue, forKey: "TimeOut")
-        diveToSave.setObject(ssDepthText as CKRecordValue, forKey: "SafetyStopDepth")
-        diveToSave.setObject(ssDurationText as CKRecordValue, forKey: "SafetyStopDuration")
-        diveToSave.setObject(surfaceIntervalText as CKRecordValue, forKey: "SurfaceInterval")
-        diveToSave.setObject(divemasterText as CKRecordValue, forKey: "DiveMasterName")
-        diveToSave.setObject(divemasterNumText as CKRecordValue, forKey: "DiveMasterNum")
-        diveToSave.setObject(airTempText as CKRecordValue, forKey: "AirTemp")
-        diveToSave.setObject(waterTempText as CKRecordValue, forKey: "WaterTemp")
-        diveToSave.setObject(visibilityText as CKRecordValue, forKey: "Visibility")
-        diveToSave.setObject(weightText as CKRecordValue, forKey: "Weight")
-        diveToSave.setObject(tpStartText as CKRecordValue, forKey: "StartTankPressure")
-        diveToSave.setObject(tpEndText as CKRecordValue, forKey: "EndTankPressure")
-        diveToSave.setObject(notesText as CKRecordValue, forKey: "DiveNotes")
         
-        privateDatabase.save(diveToSave) { (record, error) -> Void in
-            guard error == nil else{
-                print("There is an error!")
-                print(error?.localizedDescription as Any)
-                return
-            }
+        let entity =
+            NSEntityDescription.entity(forEntityName: "DiveInstance",
+                                       in: managedContext)!
+        
+        let dive = NSManagedObject(entity: entity,
+                                   insertInto: managedContext)
+        
+        
+        dive.setValue(diveNoText, forKeyPath: "diveNo")
+        dive.setValue(dateText, forKeyPath: "date")
+        dive.setValue(diveSiteText, forKeyPath: "diveSite")
+        dive.setValue(locationText, forKeyPath: "location")
+        dive.setValue(countryText, forKeyPath: "country")
+        dive.setValue(depthText, forKeyPath: "depth")
+        dive.setValue(btmTimeText, forKeyPath: "bottomTime")
+        dive.setValue(latDouble, forKeyPath: "latitude")
+        dive.setValue(longDouble, forKeyPath: "longitude")
+        
+        do {
+            try managedContext.save()
+            dives.append(dive)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
-        
-        
-        if divesList.count > 0 {
-            let counter = divesList.count - 1
-            let diveNum = Int(diveTemp.diveNo)
-            let otherDiveNum = Int(divesList[counter].diveNo)
-        
-            if diveNum! >= otherDiveNum! {
-                divesList.append(diveTemp)
-            }
-            else {
-                let position = Int(diveTemp.diveNo)
-                let positionMod = position! - 1
-            
-                divesList.insert(diveTemp, at: positionMod)
-            
-            }
-        
-            }
-        else {
-            divesList.append(diveTemp)
-        }
-        
-        
-        //divesList.append(diveTemp)
-        
-        
-        
-        
-        diveInstanceB.saveToFile(dives: divesList)
-        dives = diveInstanceB.loadFromFile()
         
         performSegue(withIdentifier: "unwindToDiveList", sender: Any?.self)
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -298,7 +268,6 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         {
             let vc = segue.destination as? DiveListController
             vc?.dives = dives
-            vc?.divesList = divesList
         }
     }
     

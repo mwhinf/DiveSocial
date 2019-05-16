@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DiveInstance" representedClassName="DiveInstance" syncable="YES" codeGenerationType="class">
+        <attribute name="airTemp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bottomTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="depth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diveMasterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diveMasterNum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diveNo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diveNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diveSite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diveType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endTankPressure" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="safetyStopDepth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="safetyStopDuration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTankPressure" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surfaceInterval" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeIn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeOut" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visibility" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="waterTemp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DiveInstance" positionX="-54" positionY="-9" width="128" height="405"/>
+    </elements>
+</model>

@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import CoreData
 
 
 @UIApplicationMain
@@ -15,13 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private let coreDataManager = CoreDataManager(modelName: "DiveModel")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         GMSServices.provideAPIKey("AIzaSyAtWcj1Gili_tDXE4vccH0X0aksoH2nzIY")
         
+        guard let viewController = window?.rootViewController as? DiveListController else {
+            fatalError("Unexpected Root View Controller")
+        }
         
+        // Configure View Controller
+        viewController.coreDataManager = coreDataManager
         return true
     }
 
@@ -47,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    
 
 }
 

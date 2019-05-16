@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */; };
+		530E26E4228A2160009E901E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530E26E3228A2160009E901E /* CoreDataManager.swift */; };
 		530EE05920C9AC2C00F708DF /* addDiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530EE05820C9AC2B00F708DF /* addDiveController.swift */; };
 		5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343BEF520C9D9D7006298B3 /* DiveListController.swift */; };
 		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
@@ -34,6 +35,7 @@
 		53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7520DDF1E500625188 /* ConfirmButton.swift */; };
 		53E07B7820DDF22500625188 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7720DDF22500625188 /* CancelButton.swift */; };
 		53E3745520BFB6E5000299DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E3745420BFB6E5000299DB /* LoginView.swift */; };
+		53FABC252289FC1A00B4849C /* DiveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53FABC232289FC1A00B4849C /* DiveModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,7 @@
 /* Begin PBXFileReference section */
 		058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiveLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.release.xcconfig"; sourceTree = "<group>"; };
+		530E26E3228A2160009E901E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		530EE05820C9AC2B00F708DF /* addDiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDiveController.swift; sourceTree = "<group>"; };
 		5343BEF520C9D9D7006298B3 /* DiveListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveListController.swift; sourceTree = "<group>"; };
 		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 		53E07B7520DDF1E500625188 /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
 		53E07B7720DDF22500625188 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		53E3745420BFB6E5000299DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		53FABC242289FC1A00B4849C /* DiveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiveModel.xcdatamodel; sourceTree = "<group>"; };
 		6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,7 @@
 				5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */,
 				5396DF28211A098F00361443 /* DiveLog.entitlements */,
 				538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */,
+				530E26E3228A2160009E901E /* CoreDataManager.swift */,
 				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
 				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
 				538DCD6120B4A1A300F58FB9 /* ViewController.swift */,
@@ -167,6 +172,7 @@
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
 				539A8E1920B6674E0061464F /* TableViewCell.swift */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
+				53FABC232289FC1A00B4849C /* DiveModel.xcdatamodeld */,
 				53D46A982253F9C1006A34E7 /* LinkButton.swift */,
 				53E07B7520DDF1E500625188 /* ConfirmButton.swift */,
 				53E07B7720DDF22500625188 /* CancelButton.swift */,
@@ -401,9 +407,11 @@
 				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,
 				53D46A972253F712006A34E7 /* HelpViewController.swift in Sources */,
 				53D46A992253F9C1006A34E7 /* LinkButton.swift in Sources */,
+				530E26E4228A2160009E901E /* CoreDataManager.swift in Sources */,
 				539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */,
 				539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */,
 				53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */,
+				53FABC252289FC1A00B4849C /* DiveModel.xcdatamodeld in Sources */,
 				53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */,
 				53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */,
 				538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */,
@@ -642,7 +650,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -709,7 +717,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -831,6 +839,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		53FABC232289FC1A00B4849C /* DiveModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				53FABC242289FC1A00B4849C /* DiveModel.xcdatamodel */,
+			);
+			currentVersion = 53FABC242289FC1A00B4849C /* DiveModel.xcdatamodel */;
+			path = DiveModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 538DCD5420B4A1A300F58FB9 /* Project object */;
 }
