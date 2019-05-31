@@ -95,15 +95,6 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             longDouble = 90.402
         }
         
-//        guard let appDelegate =
-//            UIApplication.shared.delegate as? AppDelegate else {
-//                return
-//        }
-//
-//
-//
-//       let managedContext = appDelegate.persistentContainer.viewContext
-        
         coreDataManager = CoreDataManager(modelName: "DiveModel")
         
         let managedContext = coreDataManager.managedObjectContext
@@ -126,6 +117,21 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dive.setValue(btmTimeText, forKeyPath: "bottomTime")
         dive.setValue(latDouble, forKeyPath: "latitude")
         dive.setValue(longDouble, forKeyPath: "longitude")
+        dive.setValue(timeInText, forKeyPath: "timeIn")
+        dive.setValue(timeOutText, forKeyPath: "timeOut")
+        dive.setValue(diveTypeText, forKeyPath: "diveType")
+        dive.setValue(ssDepthText, forKeyPath: "safetyStopDepth")
+        dive.setValue(ssDurationText, forKeyPath: "safetyStopDuration")
+        dive.setValue(surfaceIntervalText, forKeyPath: "surfaceInterval")
+        dive.setValue(divemasterText, forKeyPath: "divemasterName")
+        dive.setValue(divemasterNumText, forKeyPath: "divemasterNum")
+        dive.setValue(airTempText, forKeyPath: "airTemp")
+        dive.setValue(waterTempText, forKeyPath: "waterTemp")
+        dive.setValue(visibilityText, forKeyPath: "visibility")
+        dive.setValue(weightText, forKeyPath: "weight")
+        dive.setValue(tpStartText, forKeyPath: "startTankPressure")
+        dive.setValue(tpEndText, forKeyPath: "endTankPressure")
+        dive.setValue(notesText, forKeyPath: "diveNotes")
         
         do {
             try managedContext.save()
@@ -516,15 +522,13 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     func readDataFromCSV(fileName:String, fileType: String)-> String!{
         guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
             else {
-                print("RETURNED NIL YO")
                 return nil
         }
         do {
-            print("GOT HERE THO!")
             var contents = try String(contentsOfFile: filepath, encoding: .utf8)
-            print("AND HERE!")
+            
             contents = cleanRows(file: contents)
-            print("HERE TOO!")
+            
             return contents
         } catch {
             print("File Read Error for file \(filepath)")
@@ -546,8 +550,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         var cleanFile = file
         cleanFile = cleanFile.replacingOccurrences(of: "\r", with: "\n")
         cleanFile = cleanFile.replacingOccurrences(of: "\n\n", with: "\n")
-        //        cleanFile = cleanFile.replacingOccurrences(of: ";;", with: "")
-        //        cleanFile = cleanFile.replacingOccurrences(of: ";\n", with: "")
+        
         return cleanFile
     }
     
@@ -600,23 +603,6 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         }
         return "None?"
     }
-    
-   /*func readDataFromFile(file:String)-> String!{
-    
-         guard let filepath = Bundle.main.path(forResource: "Thailand_DiveSite_GPS", ofType: "txt")
-            else {
-                return nil
-        }
-        do {
-            //let content = NSString.stringWithContentsOfFile(filepath) as! String
-            let contents = try String(contentsOfFile: filepath, encoding: nil)
-            return contents
-        }
-        catch {
-            print("File Read Error for file \(filePath)")
-            return nil
-        }
-    }*/
     
     // initialize Date/Time Pickers
     let timeInPicker = UIDatePicker()
