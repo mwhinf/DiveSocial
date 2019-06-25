@@ -11,22 +11,19 @@ import GoogleMaps
 import CloudKit
 import CoreData
 
+
 class DiveListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Declare global variables & objects
     let cellSpacingHeight: CGFloat = 5
     
-    
     var coreDataManager: CoreDataManager!
-    
     
     var dives: [NSManagedObject] = []
     
     let diveSegueIdentifier = "ShowDiveSegue"
     
-    
     @IBAction func unwindToDiveList(unwindSegue: UIStoryboardSegue) {
-        
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -43,12 +40,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        dives.sort() { $0.diveNo > $1.diveNo}
-//        guard let appDelegate =
-//            UIApplication.shared.delegate as? AppDelegate else {
-//                return
-//        }
-        
+        // Set up Core Data
         coreDataManager = CoreDataManager(modelName: "DiveModel")
         
         let managedContext = coreDataManager.managedObjectContext
@@ -62,16 +54,18 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
+        // Reload Dive Data on background thread
         DispatchQueue.main.async {
          self.tableView.reloadData()
          }
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is addDiveController
+        if segue.destination is AddDiveController
         {
-            let vc = segue.destination as? addDiveController
+            let vc = segue.destination as? AddDiveController
             vc?.dives = dives
         }
         else if segue.destination is mapViewController
@@ -81,13 +75,11 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
     
     
     // Set up tableview
@@ -95,9 +87,11 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         return cellSpacingHeight
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return dives.count
     }
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
@@ -105,12 +99,15 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         return headerView
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -176,9 +173,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
             
             self.dives.remove(at: indexPath.section)
             
-            
             tableView.deleteSections(sectionToDelete, with: .fade)
-            
             
             do {
                 try managedContext.save()

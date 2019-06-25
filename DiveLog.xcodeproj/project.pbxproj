@@ -13,7 +13,6 @@
 		5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343BEF520C9D9D7006298B3 /* DiveListController.swift */; };
 		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
 		538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */; };
-		538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD6120B4A1A300F58FB9 /* ViewController.swift */; };
 		538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6320B4A1A300F58FB9 /* Main.storyboard */; };
 		538DCD6720B4A1A600F58FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6620B4A1A600F58FB9 /* Assets.xcassets */; };
 		538DCD6A20B4A1A600F58FB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6820B4A1A600F58FB9 /* LaunchScreen.storyboard */; };
@@ -64,7 +63,6 @@
 		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
 		538DCD5C20B4A1A300F58FB9 /* DiveLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiveLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		538DCD6120B4A1A300F58FB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		538DCD6420B4A1A300F58FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		538DCD6620B4A1A600F58FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538DCD6920B4A1A600F58FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				530E26E3228A2160009E901E /* CoreDataManager.swift */,
 				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
 				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
-				538DCD6120B4A1A300F58FB9 /* ViewController.swift */,
 				53E07B7320DD597300625188 /* LoginViewController.swift */,
 				53E3745420BFB6E5000299DB /* LoginView.swift */,
 				53D46A962253F712006A34E7 /* HelpViewController.swift */,
@@ -414,7 +411,6 @@
 				53FABC252289FC1A00B4849C /* DiveModel.xcdatamodeld in Sources */,
 				53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */,
 				53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */,
-				538DCD6220B4A1A300F58FB9 /* ViewController.swift in Sources */,
 				53A1859120B73C38009301DF /* DiveViewController.swift in Sources */,
 				5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */,
 				538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */,

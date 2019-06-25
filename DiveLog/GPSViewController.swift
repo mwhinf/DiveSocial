@@ -32,7 +32,7 @@ class GPSViewController: UIViewController {
         //if segue.destination is addDiveController
         if sender is ConfirmButton
         {
-            let vc = segue.destination as? addDiveController
+            let vc = segue.destination as? AddDiveController
             let latString = latitude as NSString
             let longString = longitude as NSString
             let latDouble = latString.doubleValue

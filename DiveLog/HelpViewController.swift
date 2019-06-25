@@ -25,7 +25,6 @@ class HelpViewController: UIViewController {
     
     
     @IBAction func linkClicked(_ sender: Any) {
-        print("Clicked it!")
         openUrl(urlStr: "http://mwhinf.github.io")
     }
     

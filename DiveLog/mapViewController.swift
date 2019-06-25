@@ -40,26 +40,12 @@ class mapViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
-//
-//        if dives.last != nil {
-//           camera = GMSCameraPosition.camera(withLatitude: dives.last!.latitude, longitude: dives.last!.longitude, zoom: 2.0)
-//        }
-//        else {
-//            camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
-//        }
-//
-//
-//        mapView.camera = camera
         mapView.delegate = self
         mapView.mapType = GMSMapViewType.hybrid
         mapView.settings.consumesGesturesInView = false
-        //markerPosition = GMSMarker()
-        //mapView.selectedMarker = markerPosition
     }
     
     func showMarker(){
@@ -80,16 +66,8 @@ class mapViewController: UIViewController {
         }
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        if dives.last != nil {
-//            camera = GMSCameraPosition.camera(withLatitude: dives.last!.latitude, longitude: dives.last!.longitude, zoom: 2.0)
-//        }
-//        else {
-//            camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
-//        }
         
         camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
         
@@ -107,7 +85,6 @@ class mapViewController: UIViewController {
 
 
 extension mapViewController: GMSMapViewDelegate{
-    
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
@@ -138,11 +115,6 @@ extension mapViewController: GMSMapViewDelegate{
     }
     
     
-    //func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)  {
-        
-    //    self.performSegue(withIdentifier: "infoWindowSegue", sender: nil)
-   // }
-    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
 
         let tempIndex = Int(marker.title!)
@@ -154,13 +126,8 @@ extension mapViewController: GMSMapViewDelegate{
         print(currentZoom)
         
         let camera2 = GMSCameraPosition.camera(withLatitude: latTemp!, longitude: longTemp!, zoom: currentZoom)
-
-        //let cameraUpdate = GMSCameraUpdate.setCamera(camera2)
-        
         
         mapView.animate(to: camera2)
-        
-        //mapView.camera = camera2
 
         return false
     }

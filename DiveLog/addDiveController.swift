@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import CoreData
 
-class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var dives: [NSManagedObject] = []
     
@@ -99,14 +99,12 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         let managedContext = coreDataManager.managedObjectContext
         
-        
         let entity =
             NSEntityDescription.entity(forEntityName: "DiveInstance",
                                        in: managedContext)!
         
         let dive = NSManagedObject(entity: entity,
                                    insertInto: managedContext)
-        
         
         dive.setValue(diveNoText, forKeyPath: "diveNo")
         dive.setValue(dateText, forKeyPath: "date")
@@ -123,8 +121,8 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dive.setValue(ssDepthText, forKeyPath: "safetyStopDepth")
         dive.setValue(ssDurationText, forKeyPath: "safetyStopDuration")
         dive.setValue(surfaceIntervalText, forKeyPath: "surfaceInterval")
-        dive.setValue(divemasterText, forKeyPath: "divemasterName")
-        dive.setValue(divemasterNumText, forKeyPath: "divemasterNum")
+        dive.setValue(divemasterText, forKeyPath: "diveMasterName")
+        dive.setValue(divemasterNumText, forKeyPath: "diveMasterNum")
         dive.setValue(airTempText, forKeyPath: "airTemp")
         dive.setValue(waterTempText, forKeyPath: "waterTemp")
         dive.setValue(visibilityText, forKeyPath: "visibility")
@@ -144,13 +142,10 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         var data = readDataFromCSV(fileName: "testerbook", fileType: "csv")
-        
         
         data = cleanRows(file: data!)
         csvRows = csv(data: data!)
@@ -160,86 +155,18 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
         view.addGestureRecognizer(tap)
         
-        // set initial dateBox text to current date
-        let date = Date()
-        let calendar = Calendar.current
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        let year = calendar.component(.year, from: date)
-        let dayString = String(day)
-        let monthString = String(month)
-        let yearString = String(year)
-        dateBox.text = "\(monthString)/\(dayString)/\(yearString)"
-        
-        // set up Dive Number textfield
-        diveNoPicker.delegate = self
-        diveNoPicker.dataSource = self
-        diveNoBox.inputView = diveNoPicker
-        diveNoBox.text = String(dives.count + 1)
-        diveNoBox.delegate = self
-        
-        // set up Depth textfield
-        depthBox.delegate = self
-        depthPicker.delegate = self
-        depthPicker.dataSource = self
-        depthBox.inputView = depthPicker
-        
-        // set up Bottom Time textfield
-        btmTimePicker.delegate = self
-        btmTimePicker.dataSource = self
-        btmTimeBox.inputView = btmTimePicker
-        btmTimeBox.delegate = self
-        
-        // set up DiveSite textfield autocomplete
-        diveSiteBox.autocorrectionType = .no
-        diveSiteBox.autocapitalizationType = .none
-        
-        // set up TimeIn textfield
-        timeInPicker.datePickerMode = .time
-        timeInPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
-        timeInBox.inputView = timeInPicker
-        timeInBox.delegate = self
-        
-        // set up Time Out textfield
-        timeOutPicker.datePickerMode = .time
-        timeOutPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
-        timeOutBox.inputView = timeOutPicker
-        timeOutBox.delegate = self
-        
-        // set up Date textfield
-        datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
-        dateBox.inputView = datePicker
-        dateBox.delegate = self
-        
-        // set up Lat/Long textFields
-        latBox.delegate = self
-        longBox.delegate = self
-        
-        // set up rest of textField delegates
-        diveTypeBox.delegate = self
-        diveSiteBox.delegate = self
-        locationBox.delegate = self
-        countryBox.delegate = self
-        ssDepthBox.delegate = self
-        ssDurationBox.delegate = self
-        surfaceIntervalBox.delegate = self
-        divemasterBox.delegate = self
-        divemasterNumBox.delegate = self
-        airTempBox.delegate = self
-        waterTempBox.delegate = self
-        visibilityBox.delegate = self
-        weightBox.delegate = self
-        tpStartBox.delegate = self
-        tpEndBox.delegate = self
-        notesBox.delegate = self
-        
-        // set up autocapitalization for textfields
-        locationBox.autocapitalizationType = UITextAutocapitalizationType.words
-        countryBox.autocapitalizationType = UITextAutocapitalizationType.words
-        diveTypeBox.autocapitalizationType = UITextAutocapitalizationType.words
-        divemasterBox.autocapitalizationType = UITextAutocapitalizationType.words
-        notesBox.autocapitalizationType = UITextAutocapitalizationType.sentences
+        // Set up textfields
+        setInitialDateBoxText()
+        setDiveNumberTextfield()
+        setDepthTextfield()
+        setBottomTimeTextfield()
+        setDiveSiteTextfieldAutocomplete()
+        setTimeInTextfield()
+        setTimeOutTextfield()
+        setDateTextfield()
+        setLatLongTextfields()
+        setRemainingTextfieldDelegates()
+        setAutoCapitalizationTextfields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -253,6 +180,7 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             let depthPickerRow = Int(depthBox.text!)! - 1
             depthPicker.selectRow(depthPickerRow, inComponent: 0, animated: true)
         }
+        
         if btmTimeBox.text?.isEmpty == false {
             let btmTimePickerRow = Int(btmTimeBox.text!)! - 1
             btmTimePicker.selectRow(btmTimePickerRow, inComponent: 0, animated: true)
@@ -295,8 +223,98 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         view.endEditing(true)
         scrollView.setContentOffset(scrollViewOffset, animated: true)
-//        scrollView.contentOffset = scrollViewOffset
-//        scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    }
+    
+    func setInitialDateBoxText() {
+        let date = Date()
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let year = calendar.component(.year, from: date)
+        let dayString = String(day)
+        let monthString = String(month)
+        let yearString = String(year)
+        dateBox.text = "\(monthString)/\(dayString)/\(yearString)"
+    }
+    
+    func setDiveNumberTextfield() {
+        diveNoPicker.delegate = self
+        diveNoPicker.dataSource = self
+        diveNoBox.inputView = diveNoPicker
+        diveNoBox.text = String(dives.count + 1)
+        diveNoBox.delegate = self
+    }
+    
+    func setDepthTextfield() {
+        depthBox.delegate = self
+        depthPicker.delegate = self
+        depthPicker.dataSource = self
+        depthBox.inputView = depthPicker
+    }
+    
+    func setBottomTimeTextfield() {
+        btmTimePicker.delegate = self
+        btmTimePicker.dataSource = self
+        btmTimeBox.inputView = btmTimePicker
+        btmTimeBox.delegate = self
+    }
+    
+    func setDiveSiteTextfieldAutocomplete() {
+        diveSiteBox.autocorrectionType = .no
+        diveSiteBox.autocapitalizationType = .none
+    }
+    
+    func setTimeInTextfield() {
+        timeInPicker.datePickerMode = .time
+        timeInPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        timeInBox.inputView = timeInPicker
+        timeInBox.delegate = self
+    }
+    
+    func setTimeOutTextfield() {
+        timeOutPicker.datePickerMode = .time
+        timeOutPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        timeOutBox.inputView = timeOutPicker
+        timeOutBox.delegate = self
+    }
+    
+    func setDateTextfield() {
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        dateBox.inputView = datePicker
+        dateBox.delegate = self
+    }
+    
+    func setLatLongTextfields() {
+        latBox.delegate = self
+        longBox.delegate = self
+    }
+    
+    func setRemainingTextfieldDelegates() {
+        diveTypeBox.delegate = self
+        diveSiteBox.delegate = self
+        locationBox.delegate = self
+        countryBox.delegate = self
+        ssDepthBox.delegate = self
+        ssDurationBox.delegate = self
+        surfaceIntervalBox.delegate = self
+        divemasterBox.delegate = self
+        divemasterNumBox.delegate = self
+        airTempBox.delegate = self
+        waterTempBox.delegate = self
+        visibilityBox.delegate = self
+        weightBox.delegate = self
+        tpStartBox.delegate = self
+        tpEndBox.delegate = self
+        notesBox.delegate = self
+    }
+    
+    func setAutoCapitalizationTextfields() {
+        locationBox.autocapitalizationType = UITextAutocapitalizationType.words
+        countryBox.autocapitalizationType = UITextAutocapitalizationType.words
+        diveTypeBox.autocapitalizationType = UITextAutocapitalizationType.words
+        divemasterBox.autocapitalizationType = UITextAutocapitalizationType.words
+        notesBox.autocapitalizationType = UITextAutocapitalizationType.sentences
     }
     
     // Set up Dive Site textField autocomplete
@@ -406,116 +424,78 @@ class addDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         switch textField {
             
         case diveNoBox:
-            print("DIVENOBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 0)
         case dateBox:
-            print("DATEBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 0)
         case diveTypeBox:
-            print("DIVETYPEBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 0)
         case diveSiteBox:
-            print("DIVEBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
         case locationBox:
-            print("LOCATIONBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 0)
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 0)
         case countryBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 100)
             scrollView.setContentOffset(CGPoint(x: 0, y: 100), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 100)
-            print("COUNTRYBOX")
         case timeInBox:
-            print("TIMEINBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 320)
             scrollView.setContentOffset(CGPoint(x: 0, y: 320), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 320)
         case timeOutBox:
-            print("TIMEOUTBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 320)
             scrollView.setContentOffset(CGPoint(x: 0, y: 320), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 320)
         case depthBox:
-            print("DEPTHBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 410)
             scrollView.setContentOffset(CGPoint(x: 0, y: 410), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 410)
         case btmTimeBox:
-            print("BTMTIMEBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 410)
             scrollView.setContentOffset(CGPoint(x: 0, y: 410), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 410)
         case latBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 230)
             scrollView.setContentOffset(CGPoint(x: 0, y: 230), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 230)
-            print("LATBOX")
         case longBox:
-            print("LONGBOX")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 230)
             scrollView.setContentOffset(CGPoint(x: 0, y: 230), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 230)
         case ssDepthBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 490)
             scrollView.setContentOffset(CGPoint(x: 0, y: 490), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 490)
-            print("SSDEPTHBOX")
         case ssDurationBox:
             scrollViewOffset = CGPoint(x: 0, y: 490)
             scrollView.setContentOffset(CGPoint(x: 0, y: 490), animated:true)
         case surfaceIntervalBox:
             scrollViewOffset = CGPoint(x: 0, y: 560)
-            //scrollView.contentOffset = CGPoint(x: 0, y: 560)
             scrollView.setContentOffset(CGPoint(x: 0, y: 560), animated: true)
-            print("SURFACE")
         case divemasterBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 660)
             scrollView.setContentOffset(CGPoint(x: 0, y: 660), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 660)
         case divemasterNumBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 660)
             scrollView.setContentOffset(CGPoint(x: 0, y: 660), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 660)
         case airTempBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 750)
             scrollView.setContentOffset(CGPoint(x: 0, y: 750), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 750)
         case waterTempBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 750)
             scrollView.setContentOffset(CGPoint(x: 0, y: 750), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 750)
         case visibilityBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 830)
             scrollView.setContentOffset(CGPoint(x: 0, y: 830), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 830)
         case weightBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 830)
             scrollView.setContentOffset(CGPoint(x: 0, y: 830), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 830)
         case tpStartBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 920)
             scrollView.setContentOffset(CGPoint(x: 0, y: 920), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 920)
         case tpEndBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 920)
             scrollView.setContentOffset(CGPoint(x: 0, y: 920), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 920)
         case notesBox:
-            //scrollView.contentOffset = CGPoint(x: 0, y: 1030)
             scrollView.setContentOffset(CGPoint(x: 0, y: 1030), animated:true)
             scrollViewOffset = CGPoint(x: 0, y: 1030)
         default:
             print("Went with default")
-            //scrollView.contentOffset = CGPoint(x: 0, y: 100)
         }
     }
     
