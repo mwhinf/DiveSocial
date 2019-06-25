@@ -330,7 +330,6 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             }
         }
             return true
-        
     }
     
     func formatSubstring(subString: String) -> String {
