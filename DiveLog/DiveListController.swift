@@ -51,7 +51,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         do {
             dives = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            print("Couldn't fetch. \(error), \(error.userInfo)")
         }
         
         // Reload Dive Data on background thread
