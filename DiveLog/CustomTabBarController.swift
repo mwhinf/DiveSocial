@@ -20,7 +20,7 @@ class CustomTabBarController: UITabBarController {
     {
         if segue.destination is mapViewController
         {
-            print("mapViewController")
+            print("MapViewController")
         }
     }
     
