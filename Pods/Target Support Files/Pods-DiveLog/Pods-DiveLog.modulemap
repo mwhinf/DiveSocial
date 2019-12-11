@@ -1,6 +1,0 @@
-framework module Pods_DiveLog {
-  umbrella header "Pods-DiveLog-umbrella.h"
-
-  export *
-  module * { export * }
-}

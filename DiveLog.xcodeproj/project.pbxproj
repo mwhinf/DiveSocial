@@ -7,9 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */; };
 		530EE05920C9AC2C00F708DF /* addDiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530EE05820C9AC2B00F708DF /* addDiveController.swift */; };
 		5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343BEF520C9D9D7006298B3 /* DiveListController.swift */; };
+		535635DB23A16ABB00269A41 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635DA23A16ABB00269A41 /* GoogleMapsBase.framework */; };
+		535635DD23A16AC800269A41 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635DC23A16AC800269A41 /* GoogleMaps.framework */; };
+		535635DF23A16AD300269A41 /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635DE23A16AD300269A41 /* GoogleMapsCore.framework */; };
+		535635E123A16B4E00269A41 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 535635E023A16B4E00269A41 /* GoogleMaps.bundle */; };
+		535635E323A16B9700269A41 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635E223A16B9700269A41 /* Accelerate.framework */; };
+		535635E523A16BA400269A41 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635E423A16BA400269A41 /* CoreData.framework */; };
+		535635E723A16BAF00269A41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635E623A16BAF00269A41 /* CoreGraphics.framework */; };
+		535635E923A16BBF00269A41 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635E823A16BBF00269A41 /* CoreImage.framework */; };
+		535635EB23A16BCC00269A41 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635EA23A16BCC00269A41 /* CoreLocation.framework */; };
+		535635ED23A16BD800269A41 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635EC23A16BD800269A41 /* CoreTelephony.framework */; };
+		535635EF23A16BED00269A41 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635EE23A16BED00269A41 /* CoreText.framework */; };
+		535635F123A16BF900269A41 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635F023A16BF900269A41 /* GLKit.framework */; };
+		535635F323A16C0600269A41 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635F223A16C0600269A41 /* ImageIO.framework */; };
+		535635F523A16C3100269A41 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635F423A16C3100269A41 /* libc++.tbd */; };
+		535635F723A16C4B00269A41 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635F623A16C4B00269A41 /* libz.tbd */; };
+		535635F923A16C5A00269A41 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635F823A16C5A00269A41 /* OpenGLES.framework */; };
+		535635FB23A16C7100269A41 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635FA23A16C7100269A41 /* QuartzCore.framework */; };
+		535635FD23A16C8000269A41 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635FC23A16C8000269A41 /* SystemConfiguration.framework */; };
+		535635FF23A16C9500269A41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635FE23A16C9400269A41 /* UIKit.framework */; };
+		5356360323A16E5D00269A41 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356360223A16E5D00269A41 /* GooglePlaces.framework */; };
+		5356360523A16E7800269A41 /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5356360423A16E7800269A41 /* GooglePlaces.bundle */; };
 		535F44CF23A15A4A0054FA66 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44CE23A15A4A0054FA66 /* HelpViewController.swift */; };
 		535F44D123A15B120054FA66 /* Master_DiveSites_List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */; };
 		535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44D223A15B800054FA66 /* CoreDataManager.swift */; };
@@ -55,10 +75,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiveLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.release.xcconfig"; sourceTree = "<group>"; };
 		530EE05820C9AC2B00F708DF /* addDiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDiveController.swift; sourceTree = "<group>"; };
 		5343BEF520C9D9D7006298B3 /* DiveListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveListController.swift; sourceTree = "<group>"; };
+		535635DA23A16ABB00269A41 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
+		535635DC23A16AC800269A41 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		535635DE23A16AD300269A41 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
+		535635E023A16B4E00269A41 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = SOURCE_ROOT; };
+		535635E223A16B9700269A41 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		535635E423A16BA400269A41 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		535635E623A16BAF00269A41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		535635E823A16BBF00269A41 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		535635EA23A16BCC00269A41 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		535635EC23A16BD800269A41 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		535635EE23A16BED00269A41 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		535635F023A16BF900269A41 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		535635F223A16C0600269A41 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		535635F423A16C3100269A41 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		535635F623A16C4B00269A41 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		535635F823A16C5A00269A41 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		535635FA23A16C7100269A41 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		535635FC23A16C8000269A41 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		535635FE23A16C9400269A41 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5356360223A16E5D00269A41 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
+		5356360423A16E7800269A41 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = SOURCE_ROOT; };
 		535F44CE23A15A4A0054FA66 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Master_DiveSites_List.csv; path = ../../Master_DiveSites_List.csv; sourceTree = "<group>"; };
 		535F44D223A15B800054FA66 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -91,7 +130,6 @@
 		53E07B7720DDF22500625188 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		53E3745420BFB6E5000299DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		53FABC242289FC1A00B4849C /* DiveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiveModel.xcdatamodel; sourceTree = "<group>"; };
-		6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +137,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */,
+				535635FF23A16C9500269A41 /* UIKit.framework in Frameworks */,
+				535635FD23A16C8000269A41 /* SystemConfiguration.framework in Frameworks */,
+				535635FB23A16C7100269A41 /* QuartzCore.framework in Frameworks */,
+				535635F923A16C5A00269A41 /* OpenGLES.framework in Frameworks */,
+				535635F723A16C4B00269A41 /* libz.tbd in Frameworks */,
+				535635F523A16C3100269A41 /* libc++.tbd in Frameworks */,
+				535635F323A16C0600269A41 /* ImageIO.framework in Frameworks */,
+				535635F123A16BF900269A41 /* GLKit.framework in Frameworks */,
+				535635EF23A16BED00269A41 /* CoreText.framework in Frameworks */,
+				535635ED23A16BD800269A41 /* CoreTelephony.framework in Frameworks */,
+				535635EB23A16BCC00269A41 /* CoreLocation.framework in Frameworks */,
+				535635E923A16BBF00269A41 /* CoreImage.framework in Frameworks */,
+				535635E723A16BAF00269A41 /* CoreGraphics.framework in Frameworks */,
+				535635E523A16BA400269A41 /* CoreData.framework in Frameworks */,
+				535635E323A16B9700269A41 /* Accelerate.framework in Frameworks */,
+				535635DD23A16AC800269A41 /* GoogleMaps.framework in Frameworks */,
 				5396DF2A211A09A900361443 /* CloudKit.framework in Frameworks */,
+				535635DB23A16ABB00269A41 /* GoogleMapsBase.framework in Frameworks */,
+				535635DF23A16AD300269A41 /* GoogleMapsCore.framework in Frameworks */,
+				5356360323A16E5D00269A41 /* GooglePlaces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +180,26 @@
 		048247BA6BE0457DBCCD5BEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				535635FE23A16C9400269A41 /* UIKit.framework */,
+				535635FC23A16C8000269A41 /* SystemConfiguration.framework */,
+				535635FA23A16C7100269A41 /* QuartzCore.framework */,
+				535635F823A16C5A00269A41 /* OpenGLES.framework */,
+				535635F623A16C4B00269A41 /* libz.tbd */,
+				535635F423A16C3100269A41 /* libc++.tbd */,
+				535635F223A16C0600269A41 /* ImageIO.framework */,
+				5356360223A16E5D00269A41 /* GooglePlaces.framework */,
+				535635F023A16BF900269A41 /* GLKit.framework */,
+				535635EE23A16BED00269A41 /* CoreText.framework */,
+				535635EC23A16BD800269A41 /* CoreTelephony.framework */,
+				535635EA23A16BCC00269A41 /* CoreLocation.framework */,
+				535635E823A16BBF00269A41 /* CoreImage.framework */,
+				535635E623A16BAF00269A41 /* CoreGraphics.framework */,
+				535635E423A16BA400269A41 /* CoreData.framework */,
+				535635E223A16B9700269A41 /* Accelerate.framework */,
+				535635DE23A16AD300269A41 /* GoogleMapsCore.framework */,
+				535635DC23A16AC800269A41 /* GoogleMaps.framework */,
+				535635DA23A16ABB00269A41 /* GoogleMapsBase.framework */,
 				5396DF29211A09A900361443 /* CloudKit.framework */,
-				058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,7 +211,6 @@
 				538DCD7320B4A1A700F58FB9 /* DiveLogTests */,
 				538DCD7E20B4A1A700F58FB9 /* DiveLogUITests */,
 				538DCD5D20B4A1A300F58FB9 /* Products */,
-				E716E3472477B91782634D4C /* Pods */,
 				048247BA6BE0457DBCCD5BEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +239,7 @@
 				53E07B7320DD597300625188 /* LoginViewController.swift */,
 				53E3745420BFB6E5000299DB /* LoginView.swift */,
 				535F44CE23A15A4A0054FA66 /* HelpViewController.swift */,
+				535635E023A16B4E00269A41 /* GoogleMaps.bundle */,
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
 				539A8E1920B6674E0061464F /* TableViewCell.swift */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
@@ -173,6 +247,7 @@
 				53D46A982253F9C1006A34E7 /* LinkButton.swift */,
 				53E07B7520DDF1E500625188 /* ConfirmButton.swift */,
 				53E07B7720DDF22500625188 /* CancelButton.swift */,
+				5356360423A16E7800269A41 /* GooglePlaces.bundle */,
 				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
 				53A564F820D347DA0019C414 /* GPSViewController.swift */,
 				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
@@ -203,15 +278,6 @@
 			path = DiveLogUITests;
 			sourceTree = "<group>";
 		};
-		E716E3472477B91782634D4C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */,
-				0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,11 +285,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 538DCD8420B4A1A700F58FB9 /* Build configuration list for PBXNativeTarget "DiveLog" */;
 			buildPhases = (
-				6B005496611F1B4B5E8DBB04 /* [CP] Check Pods Manifest.lock */,
 				538DCD5820B4A1A300F58FB9 /* Sources */,
 				538DCD5920B4A1A300F58FB9 /* Frameworks */,
 				538DCD5A20B4A1A300F58FB9 /* Resources */,
-				AB269187706AA673A5B1523F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,6 +397,8 @@
 				538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */,
 				539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */,
 				5396DF2E211B5C0B00361443 /* Thailand_DiveSite_GPS.csv in Resources */,
+				5356360523A16E7800269A41 /* GooglePlaces.bundle in Resources */,
+				535635E123A16B4E00269A41 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,47 +417,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6B005496611F1B4B5E8DBB04 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DiveLog-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AB269187706AA673A5B1523F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		538DCD5820B4A1A300F58FB9 /* Sources */ = {
@@ -585,12 +610,15 @@
 		};
 		538DCD8520B4A1A700F58FB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D83EDB55EFD857EFBE3F98F /* Pods-DiveLog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DiveLog/DiveLog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GAWFJ4MA57;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -652,12 +680,15 @@
 		};
 		538DCD8620B4A1A700F58FB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DiveLog/DiveLog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GAWFJ4MA57;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
