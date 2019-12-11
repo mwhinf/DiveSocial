@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		237168182E6BE1138409BC4E /* Pods_DiveLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */; };
-		530E26E4228A2160009E901E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530E26E3228A2160009E901E /* CoreDataManager.swift */; };
 		530EE05920C9AC2C00F708DF /* addDiveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530EE05820C9AC2B00F708DF /* addDiveController.swift */; };
 		5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343BEF520C9D9D7006298B3 /* DiveListController.swift */; };
+		535F44CF23A15A4A0054FA66 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44CE23A15A4A0054FA66 /* HelpViewController.swift */; };
+		535F44D123A15B120054FA66 /* Master_DiveSites_List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */; };
+		535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44D223A15B800054FA66 /* CoreDataManager.swift */; };
 		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
 		538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */; };
 		538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6320B4A1A300F58FB9 /* Main.storyboard */; };
@@ -20,7 +22,6 @@
 		538DCD8020B4A1A700F58FB9 /* DiveLogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD7F20B4A1A700F58FB9 /* DiveLogUITests.swift */; };
 		5396DF2A211A09A900361443 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5396DF29211A09A900361443 /* CloudKit.framework */; };
 		5396DF2E211B5C0B00361443 /* Thailand_DiveSite_GPS.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */; };
-		5396DF30211B5D7800361443 /* Master_DiveSites_List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5396DF2F211B5D7800361443 /* Master_DiveSites_List.csv */; };
 		539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A8E1920B6674E0061464F /* TableViewCell.swift */; };
 		539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */; };
 		539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B3D1220C85536000F18BC /* MapMarkerWindow.swift */; };
@@ -28,7 +29,6 @@
 		53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A185D220BF0DB3009301DF /* mapViewController.swift */; };
 		53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564F820D347DA0019C414 /* GPSViewController.swift */; };
 		53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */; };
-		53D46A972253F712006A34E7 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D46A962253F712006A34E7 /* HelpViewController.swift */; };
 		53D46A992253F9C1006A34E7 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D46A982253F9C1006A34E7 /* LinkButton.swift */; };
 		53E07B7420DD597300625188 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7320DD597300625188 /* LoginViewController.swift */; };
 		53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7520DDF1E500625188 /* ConfirmButton.swift */; };
@@ -57,9 +57,11 @@
 /* Begin PBXFileReference section */
 		058C54ACF427CD9BDA233F27 /* Pods_DiveLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiveLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDD0677B8D8C7013AA9E28D /* Pods-DiveLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiveLog.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiveLog/Pods-DiveLog.release.xcconfig"; sourceTree = "<group>"; };
-		530E26E3228A2160009E901E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		530EE05820C9AC2B00F708DF /* addDiveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addDiveController.swift; sourceTree = "<group>"; };
 		5343BEF520C9D9D7006298B3 /* DiveListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveListController.swift; sourceTree = "<group>"; };
+		535F44CE23A15A4A0054FA66 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Master_DiveSites_List.csv; path = ../../Master_DiveSites_List.csv; sourceTree = "<group>"; };
+		535F44D223A15B800054FA66 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
 		538DCD5C20B4A1A300F58FB9 /* DiveLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiveLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 		5396DF28211A098F00361443 /* DiveLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiveLog.entitlements; sourceTree = "<group>"; };
 		5396DF29211A09A900361443 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Thailand_DiveSite_GPS.csv; sourceTree = "<group>"; };
-		5396DF2F211B5D7800361443 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Master_DiveSites_List.csv; path = ../../../Master_DiveSites_List.csv; sourceTree = "<group>"; };
 		539A8E1920B6674E0061464F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
 		539B3D1220C85536000F18BC /* MapMarkerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerWindow.swift; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		53A185D220BF0DB3009301DF /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		53A564F820D347DA0019C414 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		53D46A962253F712006A34E7 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpViewController.swift; path = /Users/michaelwhinfrey/Desktop/swift/DiveLog/DiveLog/HelpViewController.swift; sourceTree = "<absolute>"; };
 		53D46A982253F9C1006A34E7 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		53E07B7320DD597300625188 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		53E07B7520DDF1E500625188 /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
@@ -156,16 +156,16 @@
 			isa = PBXGroup;
 			children = (
 				5381FA282241F74E00C9ABF0 /* testerbook.csv */,
-				5396DF2F211B5D7800361443 /* Master_DiveSites_List.csv */,
+				535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */,
 				5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */,
 				5396DF28211A098F00361443 /* DiveLog.entitlements */,
 				538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */,
-				530E26E3228A2160009E901E /* CoreDataManager.swift */,
+				535F44D223A15B800054FA66 /* CoreDataManager.swift */,
 				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
 				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
 				53E07B7320DD597300625188 /* LoginViewController.swift */,
 				53E3745420BFB6E5000299DB /* LoginView.swift */,
-				53D46A962253F712006A34E7 /* HelpViewController.swift */,
+				535F44CE23A15A4A0054FA66 /* HelpViewController.swift */,
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
 				539A8E1920B6674E0061464F /* TableViewCell.swift */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
@@ -326,11 +326,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535F44D123A15B120054FA66 /* Master_DiveSites_List.csv in Resources */,
 				538DCD6A20B4A1A600F58FB9 /* LaunchScreen.storyboard in Resources */,
 				5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */,
 				538DCD6720B4A1A600F58FB9 /* Assets.xcassets in Resources */,
 				538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */,
-				5396DF30211B5D7800361443 /* Master_DiveSites_List.csv in Resources */,
 				539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */,
 				5396DF2E211B5C0B00361443 /* Thailand_DiveSite_GPS.csv in Resources */,
 			);
@@ -402,14 +402,14 @@
 				53E07B7820DDF22500625188 /* CancelButton.swift in Sources */,
 				53E3745520BFB6E5000299DB /* LoginView.swift in Sources */,
 				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,
-				53D46A972253F712006A34E7 /* HelpViewController.swift in Sources */,
+				535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */,
 				53D46A992253F9C1006A34E7 /* LinkButton.swift in Sources */,
-				530E26E4228A2160009E901E /* CoreDataManager.swift in Sources */,
 				539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */,
 				539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */,
 				53A185D320BF0DB3009301DF /* mapViewController.swift in Sources */,
 				53FABC252289FC1A00B4849C /* DiveModel.xcdatamodeld in Sources */,
 				53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */,
+				535F44CF23A15A4A0054FA66 /* HelpViewController.swift in Sources */,
 				53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */,
 				53A1859120B73C38009301DF /* DiveViewController.swift in Sources */,
 				5343BEF620C9D9D7006298B3 /* DiveListController.swift in Sources */,

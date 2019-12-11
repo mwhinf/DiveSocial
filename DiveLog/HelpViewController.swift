@@ -1,6 +1,6 @@
 //
 //  HelpViewController.swift
-//  
+//
 //
 //  Created by Michael Whinfrey on 4/2/19.
 //
