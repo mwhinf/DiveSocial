@@ -34,8 +34,7 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     // Set up IBOutlets and IBActions
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBAction func unwindToAdd(unwindSegue: UIStoryboardSegue) {
-    }
+    @IBAction func unwindToAdd(unwindSegue: UIStoryboardSegue) {}
     @IBOutlet weak var diveNoBox: UITextField!
     @IBOutlet weak var dateBox: UITextField!
     @IBOutlet weak var diveSiteBox: UITextField!
@@ -99,12 +98,9 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         let managedContext = coreDataManager.managedObjectContext
         
-        let entity =
-            NSEntityDescription.entity(forEntityName: "DiveInstance",
-                                       in: managedContext)!
+        let entity = NSEntityDescription.entity(forEntityName: "DiveInstance", in: managedContext)!
         
-        let dive = NSManagedObject(entity: entity,
-                                   insertInto: managedContext)
+        let dive = NSManagedObject(entity: entity, insertInto: managedContext)
         
         dive.setValue(diveNoText, forKeyPath: "diveNo")
         dive.setValue(dateText, forKeyPath: "date")
@@ -134,13 +130,12 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         do {
             try managedContext.save()
             dives.append(dive)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
+           }
+        catch let error as NSError
+            { print("Could not save. \(error), \(error.userInfo)") }
         
         performSegue(withIdentifier: "unwindToDiveList", sender: Any?.self)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,14 +145,12 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         let managedContext = coreDataManager.managedObjectContext
         
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
         
-        do {
-            dives = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Couldn't fetch. \(error), \(error.userInfo)")
-        }
+        do
+            { dives = try managedContext.fetch(fetchRequest) }
+        catch let error as NSError
+            { print("Couldn't fetch. \(error), \(error.userInfo)") }
         
         var data = readDataFromCSV(fileName: "testerbook", fileType: "csv")
         
@@ -200,9 +193,8 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             btmTimePicker.selectRow(btmTimePickerRow, inComponent: 0, animated: true)
         }
         
-        if timeInString.isEmpty && timeOutString.isEmpty == false {
-            btmTimeBox.text = btmTimeReal
-        }
+        if timeInString.isEmpty && timeOutString.isEmpty == false
+            { btmTimeBox.text = btmTimeReal }
         
         if lat.isEmpty == false {
             latBox.text = lat
@@ -210,18 +202,7 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-//        if segue.destination is DiveListController
-//        {
-//            let vc = segue.destination as? DiveListController
-//            vc?.dives = dives
-//        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
     
     // dismiss keyboard upon tap event
     @objc func dismissKeyboard() {
@@ -337,11 +318,10 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             var subString = (textField.text!.capitalized as NSString).replacingCharacters(in: range, with: string)
             subString = formatSubstring(subString: subString)
         
-            if subString.count == 0 { // when a user clears the textField
-                resetValues()
-            } else {
-                searchAutocompleteEntriesWIthSubstring(substring: subString)
-            }
+            if subString.count == 0 // when a user clears the textField
+                { resetValues() }
+            else
+                { searchAutocompleteEntriesWIthSubstring(substring: subString) }
         }
             return true
     }
@@ -368,8 +348,7 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
                     self.moveCaretToEndOfUserQueryPosition(userQuery: userQuery)
                 })
             } else {
-                timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in
-                    self.diveSiteBox.text = substring
+                timer = .scheduledTimer(withTimeInterval: 0.01, repeats: false, block: { (timer) in self.diveSiteBox.text = substring
                 })
                 autoCompleteCharacterCount = 0
             }
@@ -399,9 +378,9 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func moveCaretToEndOfUserQueryPosition(userQuery : String) {
-        if let newPosition = self.diveSiteBox.position(from: self.diveSiteBox.beginningOfDocument, offset: userQuery.count) {
-            self.diveSiteBox.selectedTextRange = self.diveSiteBox.textRange(from: newPosition, to: newPosition)
-        }
+        if let newPosition = self.diveSiteBox.position(from: self.diveSiteBox.beginningOfDocument, offset: userQuery.count)
+            { self.diveSiteBox.selectedTextRange = self.diveSiteBox.textRange(from: newPosition, to: newPosition) }
+        
         let selectedRange: UITextRange? = diveSiteBox.selectedTextRange
         diveSiteBox.offset(from: diveSiteBox.beginningOfDocument, to: (selectedRange?.start)!)
     }
@@ -514,9 +493,8 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     func readDataFromCSV(fileName:String, fileType: String)-> String!{
         guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
-            else {
-                return nil
-        }
+            else
+                { return nil }
         do {
             var contents = try String(contentsOfFile: filepath, encoding: .utf8)
             
@@ -555,45 +533,36 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     var depthPicker = UIPickerView()
     var btmTimePicker = UIPickerView()
     
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
+        { return 1 }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == diveNoPicker {
-            return diveNoPickerData.count
-        }
-        else if pickerView == depthPicker {
-            return depthPickerData.count
-        }
-        else if pickerView == btmTimePicker {
-            return btmTimePickerData.count
-        }
+        if pickerView == diveNoPicker
+            { return diveNoPickerData.count }
+        else if pickerView == depthPicker
+            { return depthPickerData.count }
+        else if pickerView == btmTimePicker
+            { return btmTimePickerData.count }
+        
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == diveNoPicker {
-            diveNoBox.text = String(diveNoPickerData[row])
-        }
-        else if pickerView == depthPicker {
-            depthBox.text = String(depthPickerData[row])
-        }
-        else if pickerView == btmTimePicker {
-            btmTimeBox.text = String(btmTimePickerData[row])
-        }
+        if pickerView == diveNoPicker
+            { diveNoBox.text = String(diveNoPickerData[row]) }
+        else if pickerView == depthPicker
+            { depthBox.text = String(depthPickerData[row]) }
+        else if pickerView == btmTimePicker
+            { btmTimeBox.text = String(btmTimePickerData[row]) }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == diveNoPicker {
-            return String(diveNoPickerData[row])
-        }
-        else if pickerView == depthPicker {
-            return String(depthPickerData[row])
-        }
-        else if pickerView == btmTimePicker {
-            return String(btmTimePickerData[row])
-        }
+        if pickerView == diveNoPicker
+            { return String(diveNoPickerData[row]) }
+        else if pickerView == depthPicker
+            { return String(depthPickerData[row]) }
+        else if pickerView == btmTimePicker
+            { return String(btmTimePickerData[row]) }
         return "None?"
     }
     
@@ -605,15 +574,13 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     @objc func handleDatePicker(sender: UIDatePicker) {
         var date = Date()
         
-        if sender == timeInPicker {
-            date = timeInPicker.date
-        }
-        else if sender == timeOutPicker {
-            date = timeOutPicker.date
-        }
-        else if sender == datePicker {
-            date = datePicker.date
-        }
+        if sender == timeInPicker
+            { date = timeInPicker.date }
+        else if sender == timeOutPicker
+            { date = timeOutPicker.date }
+        else if sender == datePicker
+            { date = datePicker.date }
+        
         let components = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
         var hourInt = components.hour!
         let minInt = components.minute!
@@ -642,12 +609,10 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             var difference = Int()
             
             if timeOutString.isEmpty == false {
-                if timeOutHour > timeInHour {
-                    difference = (timeOutMin + 60) - timeInMin
-                }
-                else {
-                    difference = timeOutMin - timeInMin
-                }
+                if timeOutHour > timeInHour
+                    { difference = (timeOutMin + 60) - timeInMin }
+                else
+                    { difference = timeOutMin - timeInMin }
                 
                 btmTimeReal = String(difference)
                 btmTimeBox.text = btmTimeReal
@@ -661,20 +626,17 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             var difference = Int()
             
             if timeInString.isEmpty == false {
-                if timeOutHour > timeInHour {
-                    difference = (timeOutMin + 60) - timeInMin
-                }
-                else {
-                    difference = timeOutMin - timeInMin
-                }
+                if timeOutHour > timeInHour
+                    { difference = (timeOutMin + 60) - timeInMin }
+                else
+                    { difference = timeOutMin - timeInMin }
                 
                 btmTimeReal = String(difference)
                 btmTimeBox.text = btmTimeReal
+            }
         }
-        }
-        else if sender == datePicker {
-            dateBox.text = dateString
-        }
+        else if sender == datePicker
+            { dateBox.text = dateString }
     }
 }
 

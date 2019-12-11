@@ -8,13 +8,11 @@
 
 import UIKit
 
-
 class MapMarkerWindow: UIView {
 
     @IBOutlet weak var firstBox: UIView!
     @IBOutlet weak var secondBox: UIView!
     @IBOutlet weak var thirdBox: UIView!
-    
     
     @IBOutlet weak var diveNoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -24,9 +22,7 @@ class MapMarkerWindow: UIView {
     @IBOutlet weak var depthLabel: UILabel!
     @IBOutlet weak var btmTimeLabel: UILabel!
     
-    
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: "MapMarkerWindowView", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView
-    }
+    class func instanceFromNib() -> UIView
+    { return UINib(nibName: "MapMarkerWindowView", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView }
 
 }

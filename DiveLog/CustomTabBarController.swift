@@ -12,21 +12,8 @@ class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is mapViewController
-        {
-            print("MapViewController")
-        }
-    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }

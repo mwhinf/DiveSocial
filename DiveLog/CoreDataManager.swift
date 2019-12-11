@@ -17,23 +17,19 @@ public class CoreDataManager {
     
     // MARK: - Initialization
     
-    public init(modelName: String) {
-        // Set Model Name
-        self.modelName = modelName
-    }
-    
+    public init(modelName: String)
+        { self.modelName = modelName }  // Set Model Name
+        
     // MARK: - Core Data Stack
     
     private lazy var managedObjectModel: NSManagedObjectModel = {
         // Fetch Model URL
-        guard let modelURL = Bundle.main.url(forResource: self.modelName, withExtension: "momd") else {
-            fatalError("Unable to Find Data Model")
-        }
+        guard let modelURL = Bundle.main.url(forResource: self.modelName, withExtension: "momd") else
+            { fatalError("Unable to Find Data Model") }
         
         // Initialize Managed Object Model
-        guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
-            fatalError("Unable to Load Data Model")
-        }
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else
+            { fatalError("Unable to Load Data Model") }
         
         return managedObjectModel
     }()
@@ -65,13 +61,11 @@ public class CoreDataManager {
                                                               at: persistentStoreURL,
                                                               options: options)
             
-        } catch {
-            fatalError("Unable to Add Persistent Store")
-        }
+        } catch
+            { fatalError("Unable to Add Persistent Store") }
         
         return persistentStoreCoordinator
     }()
-    
     
     public private(set) lazy var managedObjectContext: NSManagedObjectContext = {
         // Initialize Managed Object Context

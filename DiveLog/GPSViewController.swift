@@ -44,12 +44,7 @@ class GPSViewController: UIViewController {
             
             vc?.lat = finalLatString
             vc?.long = finalLongString
-            
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
@@ -63,11 +58,8 @@ extension GPSViewController: GMSMapViewDelegate{
     }
 }
 
-
 extension Double
 {
     func truncate(places : Int)-> Double
-    {
-        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
-    }
+    { return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places))) }
 }
