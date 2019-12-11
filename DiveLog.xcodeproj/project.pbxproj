@@ -31,7 +31,6 @@
 		5356360323A16E5D00269A41 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356360223A16E5D00269A41 /* GooglePlaces.framework */; };
 		5356360523A16E7800269A41 /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5356360423A16E7800269A41 /* GooglePlaces.bundle */; };
 		535F44CF23A15A4A0054FA66 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44CE23A15A4A0054FA66 /* HelpViewController.swift */; };
-		535F44D123A15B120054FA66 /* Master_DiveSites_List.csv in Resources */ = {isa = PBXBuildFile; fileRef = 535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */; };
 		535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44D223A15B800054FA66 /* CoreDataManager.swift */; };
 		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
 		538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */; };
@@ -80,7 +79,7 @@
 		535635DA23A16ABB00269A41 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
 		535635DC23A16AC800269A41 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		535635DE23A16AD300269A41 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
-		535635E023A16B4E00269A41 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = SOURCE_ROOT; };
+		535635E023A16B4E00269A41 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = DiveLog/Bundles/GoogleMaps.bundle; sourceTree = SOURCE_ROOT; };
 		535635E223A16B9700269A41 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		535635E423A16BA400269A41 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		535635E623A16BAF00269A41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,9 +96,9 @@
 		535635FC23A16C8000269A41 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		535635FE23A16C9400269A41 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5356360223A16E5D00269A41 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
-		5356360423A16E7800269A41 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = SOURCE_ROOT; };
+		5356360423A16E7800269A41 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = DiveLog/Bundles/GooglePlaces.bundle; sourceTree = SOURCE_ROOT; };
+		5356360923A17CE300269A41 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Master_DiveSites_List.csv; sourceTree = "<group>"; };
 		535F44CE23A15A4A0054FA66 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Master_DiveSites_List.csv; path = ../../Master_DiveSites_List.csv; sourceTree = "<group>"; };
 		535F44D223A15B800054FA66 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
 		538DCD5C20B4A1A300F58FB9 /* DiveLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiveLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +203,70 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5356360723A17C5000269A41 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
+				530EE05820C9AC2B00F708DF /* addDiveController.swift */,
+				53A185D220BF0DB3009301DF /* mapViewController.swift */,
+				53A564F820D347DA0019C414 /* GPSViewController.swift */,
+				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
+				53E07B7320DD597300625188 /* LoginViewController.swift */,
+				535F44CE23A15A4A0054FA66 /* HelpViewController.swift */,
+				53A1859020B73C38009301DF /* DiveViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5356360823A17CCD00269A41 /* DiveSite Location Data */ = {
+			isa = PBXGroup;
+			children = (
+				5356360923A17CE300269A41 /* Master_DiveSites_List.csv */,
+				5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */,
+				5381FA282241F74E00C9ABF0 /* testerbook.csv */,
+			);
+			path = "DiveSite Location Data";
+			sourceTree = "<group>";
+		};
+		5356360A23A17D5F00269A41 /* Bundles */ = {
+			isa = PBXGroup;
+			children = (
+				535635E023A16B4E00269A41 /* GoogleMaps.bundle */,
+				5356360423A16E7800269A41 /* GooglePlaces.bundle */,
+			);
+			path = Bundles;
+			sourceTree = "<group>";
+		};
+		5356360B23A17DAD00269A41 /* UI  */ = {
+			isa = PBXGroup;
+			children = (
+				5356360C23A17DCB00269A41 /* Views */,
+				5356360D23A17E7300269A41 /* Components */,
+			);
+			path = "UI ";
+			sourceTree = "<group>";
+		};
+		5356360C23A17DCB00269A41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
+				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
+				53E3745420BFB6E5000299DB /* LoginView.swift */,
+				539A8E1920B6674E0061464F /* TableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5356360D23A17E7300269A41 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				53D46A982253F9C1006A34E7 /* LinkButton.swift */,
+				53E07B7520DDF1E500625188 /* ConfirmButton.swift */,
+				53E07B7720DDF22500625188 /* CancelButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		538DCD5320B4A1A200F58FB9 = {
 			isa = PBXGroup;
 			children = (
@@ -228,34 +291,18 @@
 		538DCD5E20B4A1A300F58FB9 /* DiveLog */ = {
 			isa = PBXGroup;
 			children = (
-				5381FA282241F74E00C9ABF0 /* testerbook.csv */,
-				535F44D023A15B110054FA66 /* Master_DiveSites_List.csv */,
-				5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */,
 				5396DF28211A098F00361443 /* DiveLog.entitlements */,
+				5356360B23A17DAD00269A41 /* UI  */,
+				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
+				538DCD6820B4A1A600F58FB9 /* LaunchScreen.storyboard */,
+				5356360823A17CCD00269A41 /* DiveSite Location Data */,
+				5356360723A17C5000269A41 /* View Controllers */,
 				538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */,
 				535F44D223A15B800054FA66 /* CoreDataManager.swift */,
-				539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */,
-				539B3D1220C85536000F18BC /* MapMarkerWindow.swift */,
-				53E07B7320DD597300625188 /* LoginViewController.swift */,
-				53E3745420BFB6E5000299DB /* LoginView.swift */,
-				535F44CE23A15A4A0054FA66 /* HelpViewController.swift */,
-				535635E023A16B4E00269A41 /* GoogleMaps.bundle */,
-				53A185D220BF0DB3009301DF /* mapViewController.swift */,
-				539A8E1920B6674E0061464F /* TableViewCell.swift */,
-				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
 				53FABC232289FC1A00B4849C /* DiveModel.xcdatamodeld */,
-				53D46A982253F9C1006A34E7 /* LinkButton.swift */,
-				53E07B7520DDF1E500625188 /* ConfirmButton.swift */,
-				53E07B7720DDF22500625188 /* CancelButton.swift */,
-				5356360423A16E7800269A41 /* GooglePlaces.bundle */,
-				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
-				53A564F820D347DA0019C414 /* GPSViewController.swift */,
-				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
-				530EE05820C9AC2B00F708DF /* addDiveController.swift */,
-				53A1859020B73C38009301DF /* DiveViewController.swift */,
 				538DCD6620B4A1A600F58FB9 /* Assets.xcassets */,
-				538DCD6820B4A1A600F58FB9 /* LaunchScreen.storyboard */,
 				538DCD6B20B4A1A600F58FB9 /* Info.plist */,
+				5356360A23A17D5F00269A41 /* Bundles */,
 			);
 			path = DiveLog;
 			sourceTree = "<group>";
@@ -390,7 +437,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				535F44D123A15B120054FA66 /* Master_DiveSites_List.csv in Resources */,
 				538DCD6A20B4A1A600F58FB9 /* LaunchScreen.storyboard in Resources */,
 				5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */,
 				538DCD6720B4A1A600F58FB9 /* Assets.xcassets in Resources */,
