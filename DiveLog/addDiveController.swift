@@ -145,6 +145,20 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up Core Data
+        coreDataManager = CoreDataManager(modelName: "DiveModel")
+        
+        let managedContext = coreDataManager.managedObjectContext
+        
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+        
+        do {
+            dives = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+        }
+        
         var data = readDataFromCSV(fileName: "testerbook", fileType: "csv")
         
         data = cleanRows(file: data!)
@@ -198,11 +212,11 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is DiveListController
-        {
-            let vc = segue.destination as? DiveListController
-            vc?.dives = dives
-        }
+//        if segue.destination is DiveListController
+//        {
+//            let vc = segue.destination as? DiveListController
+//            vc?.dives = dives
+//        }
     }
     
     override func didReceiveMemoryWarning() {

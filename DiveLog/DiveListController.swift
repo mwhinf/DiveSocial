@@ -63,16 +63,16 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is AddDiveController
-        {
-            let vc = segue.destination as? AddDiveController
-            vc?.dives = dives
-        }
-        else if segue.destination is mapViewController
-        {
-            let vc = segue.destination as? mapViewController
-            vc?.dives = dives
-        }
+//        if segue.destination is AddDiveController
+//        {
+//            let vc = segue.destination as? AddDiveController
+//            vc?.dives = dives
+//        }
+//        else if segue.destination is mapViewController
+//        {
+//            let vc = segue.destination as? mapViewController
+//            vc?.dives = dives
+//        }
     }
     
     

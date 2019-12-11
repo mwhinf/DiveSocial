@@ -17,6 +17,8 @@ class mapViewController: UIViewController {
     var dives: [NSManagedObject] = []
     var camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
     
+    var coreDataManager: CoreDataManager!
+    
     @IBAction func unwindToMap(unwindSegue: UIStoryboardSegue) {
         
     }
@@ -33,15 +35,29 @@ class mapViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is DiveListController
-        {
-            let vc = segue.destination as? DiveListController
-            vc?.dives = dives
-        }
+//        if segue.destination is DiveListController
+//        {
+//            let vc = segue.destination as? DiveListController
+//            vc?.dives = dives
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up Core Data
+        coreDataManager = CoreDataManager(modelName: "DiveModel")
+        
+        let managedContext = coreDataManager.managedObjectContext
+        
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+        
+        do {
+            dives = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+        }
         
         mapView.delegate = self
         mapView.mapType = GMSMapViewType.hybrid
