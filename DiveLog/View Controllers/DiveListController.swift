@@ -43,14 +43,41 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
         
-        do
-            { dives = try managedContext.fetch(fetchRequest) }
+        let sortDescriptor = NSSortDescriptor(key: "timeInterval", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+                
+            var diveList = try managedContext.fetch(fetchRequest)
+
+            for (index, dive) in diveList.enumerated() {
+                
+//                let diveNum = dive.value(forKeyPath: "diveNo") as? String
+//
+//                guard let diveNumInt = Int(diveNum) else
+//                    { return }
+                
+                let diveNum = String(index + 1)
+                
+                dive.setValue(diveNum, forKeyPath: "diveNo")
+
+            }
+            
+            self.dives = diveList
+        }
         catch let error as NSError
             { print("Couldn't fetch. \(error), \(error.userInfo)") }
+        
+        do
+            { try managedContext.save() }
+        catch let error as NSError
+            { print("Could not delete. \(error), \(error.userInfo)") }
         
         // Reload Dive Data on background thread
         DispatchQueue.main.async
         { self.tableView.reloadData() }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
@@ -78,6 +105,9 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! TableViewCell
         
         let dive = dives[indexPath.section]
+        
+        print("indexPath:")
+        print(indexPath.section)
         
         let diveNoLabel = dive.value(forKeyPath: "diveNo") as? String
         let dateLabel = dive.value(forKeyPath: "date") as? String

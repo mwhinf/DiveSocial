@@ -49,7 +49,6 @@
 		53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564F820D347DA0019C414 /* GPSViewController.swift */; };
 		53A564FB20D4CF9D0019C414 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */; };
 		53D46A992253F9C1006A34E7 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D46A982253F9C1006A34E7 /* LinkButton.swift */; };
-		53E07B7420DD597300625188 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7320DD597300625188 /* LoginViewController.swift */; };
 		53E07B7620DDF1E500625188 /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7520DDF1E500625188 /* ConfirmButton.swift */; };
 		53E07B7820DDF22500625188 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E07B7720DDF22500625188 /* CancelButton.swift */; };
 		53E3745520BFB6E5000299DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E3745420BFB6E5000299DB /* LoginView.swift */; };
@@ -124,7 +123,6 @@
 		53A564F820D347DA0019C414 /* GPSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSViewController.swift; sourceTree = "<group>"; };
 		53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		53D46A982253F9C1006A34E7 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
-		53E07B7320DD597300625188 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		53E07B7520DDF1E500625188 /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
 		53E07B7720DDF22500625188 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		53E3745420BFB6E5000299DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
 				53A564F820D347DA0019C414 /* GPSViewController.swift */,
 				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
-				53E07B7320DD597300625188 /* LoginViewController.swift */,
 				535F44CE23A15A4A0054FA66 /* HelpViewController.swift */,
 				53A1859020B73C38009301DF /* DiveViewController.swift */,
 			);
@@ -469,7 +466,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53E07B7420DD597300625188 /* LoginViewController.swift in Sources */,
 				53E07B7820DDF22500625188 /* CancelButton.swift in Sources */,
 				53E3745520BFB6E5000299DB /* LoginView.swift in Sources */,
 				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,

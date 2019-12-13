@@ -32,6 +32,8 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     var diveIndex: [Int] = []
     var scrollViewOffset = CGPoint()
     
+    var timeInterval = Date().timeIntervalSince1970
+        
     // Set up IBOutlets and IBActions
     @IBOutlet weak var scrollView: UIScrollView!
     @IBAction func unwindToAdd(unwindSegue: UIStoryboardSegue) {}
@@ -126,6 +128,9 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dive.setValue(tpStartText, forKeyPath: "startTankPressure")
         dive.setValue(tpEndText, forKeyPath: "endTankPressure")
         dive.setValue(notesText, forKeyPath: "diveNotes")
+        dive.setValue(self.timeInterval, forKeyPath: "timeInterval")
+        
+        print(self.timeInterval)
         
         do {
             try managedContext.save()
@@ -601,6 +606,9 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         let dateString = "\(month)/\(day)/\(year)"
         let timeString = "\(hourInt):\(minute) \(AMPM)"
     
+        self.timeInterval = date.timeIntervalSince1970
+        
+        
         if sender == timeInPicker {
             timeInString = timeString
             timeInHour = hour24
