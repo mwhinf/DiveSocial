@@ -49,21 +49,14 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         
         do {
                 
-            var diveList = try managedContext.fetch(fetchRequest)
+            let diveList = try managedContext.fetch(fetchRequest)
 
             for (index, dive) in diveList.enumerated() {
-                
-//                let diveNum = dive.value(forKeyPath: "diveNo") as? String
-//
-//                guard let diveNumInt = Int(diveNum) else
-//                    { return }
                 
                 let diveNum = String(index + 1)
                 
                 dive.setValue(diveNum, forKeyPath: "diveNo")
-
             }
-            
             self.dives = diveList
         }
         catch let error as NSError
@@ -106,9 +99,6 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         
         let dive = dives[indexPath.section]
         
-        print("indexPath:")
-        print(indexPath.section)
-        
         let diveNoLabel = dive.value(forKeyPath: "diveNo") as? String
         let dateLabel = dive.value(forKeyPath: "date") as? String
         let diveSiteLabel = dive.value(forKeyPath: "diveSite") as? String
@@ -117,15 +107,17 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         let depthLabel = dive.value(forKeyPath: "depth") as? String
         let btmTimeLabel = dive.value(forKeyPath: "bottomTime") as? String
         
-        cell.diveNoLabel.text = "Dive No." + diveNoLabel!
+        cell.diveNoLabel.text = "Dive No." + (diveNoLabel ?? "0")
         cell.dateLabel.text = dateLabel
         cell.diveSiteLabel.text = diveSiteLabel
         
-        if locationLabel!.isEmpty == false
-            { cell.locationLabel.text = locationLabel! + "," }
-        else
-            { cell.locationLabel.text = locationLabel! }
+        if (locationLabel != nil) {
         
+            if locationLabel!.isEmpty == false
+                { cell.locationLabel.text = (locationLabel ?? "") + "," }
+            else
+                { cell.locationLabel.text = (locationLabel ?? "") }
+        }
         cell.countryLabel.text = countryLabel
         cell.depthLabel.text = depthLabel
         cell.btmTimeLabel.text = btmTimeLabel
@@ -141,33 +133,47 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             
             // delete item at indexPath
-            
             let sectionToDelete: IndexSet = [indexPath.section]
-            
-            self.coreDataManager = CoreDataManager(modelName: "DiveModel")
-            
+                        
             let managedContext = self.coreDataManager.managedObjectContext
             
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
             
+            let sortDescriptor = NSSortDescriptor(key: "timeInterval", ascending: true)
+                    
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            
             do {
-                let test = try managedContext.fetch(fetchRequest)
+                var test = try managedContext.fetch(fetchRequest)
                 
                 let diveToDelete = test[indexPath.section]
+                
+                test.remove(at: indexPath.section)
+
                 managedContext.delete(diveToDelete)
                 
+                for (index, dive) in test.enumerated() {
+                    
+                    let diveNum = String(index + 1)
+                    
+                    dive.setValue(diveNum, forKeyPath: "diveNo")
+
+                    }
                 }
             catch let error as NSError
                 { print("Could not fetch. \(error), \(error.userInfo)") }
             
             self.dives.remove(at: indexPath.section)
             
-            tableView.deleteSections(sectionToDelete, with: .fade)
+            self.tableView.deleteSections(sectionToDelete, with: .fade)
             
+            self.tableView.reloadData()
+
             do
                 { try managedContext.save() }
             catch let error as NSError
                 { print("Could not delete. \(error), \(error.userInfo)") }
+            
     }
         return [delete]
 }
