@@ -266,21 +266,21 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     func setTimeInTextfield() {
         timeInPicker.datePickerMode = .time
-        timeInPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        timeInPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControl.Event.valueChanged)
         timeInBox.inputView = timeInPicker
         timeInBox.delegate = self
     }
     
     func setTimeOutTextfield() {
         timeOutPicker.datePickerMode = .time
-        timeOutPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        timeOutPicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControl.Event.valueChanged)
         timeOutBox.inputView = timeOutPicker
         timeOutBox.delegate = self
     }
     
     func setDateTextfield() {
         datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControl.Event.valueChanged)
         dateBox.inputView = datePicker
         dateBox.delegate = self
     }
@@ -378,7 +378,7 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     func putColourFormattedTextInTextField(autocompleteResult: String, userQuery : String) {
         let colouredString: NSMutableAttributedString = NSMutableAttributedString(string: userQuery + autocompleteResult)
-        colouredString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: NSRange(location: userQuery.count,length:autocompleteResult.count))
+        colouredString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.gray, range: NSRange(location: userQuery.count,length:autocompleteResult.count))
         self.diveSiteBox.attributedText = colouredString
     }
     

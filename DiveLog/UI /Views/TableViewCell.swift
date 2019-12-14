@@ -20,7 +20,7 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layoutMargins = UIEdgeInsetsMake(0,5,0,5)
+        self.layoutMargins = UIEdgeInsets.init(top: 0,left: 5,bottom: 0,right: 5)
         // Initialization code
     }
 

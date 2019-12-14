@@ -393,6 +393,7 @@
 				TargetAttributes = {
 					538DCD5B20B4A1A300F58FB9 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1120;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -404,10 +405,12 @@
 					};
 					538DCD6F20B4A1A600F58FB9 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1120;
 						TestTargetID = 538DCD5B20B4A1A300F58FB9;
 					};
 					538DCD7A20B4A1A700F58FB9 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1120;
 						TestTargetID = 538DCD5B20B4A1A300F58FB9;
 					};
 				};
@@ -719,7 +722,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -789,7 +792,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -808,7 +811,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiveLog.app/DiveLog";
 			};
@@ -828,7 +831,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLogTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiveLog.app/DiveLog";
 			};
@@ -847,7 +850,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLogUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = DiveLog;
 			};
@@ -866,7 +869,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mwhinf.DiveLogUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = DiveLog;
 			};

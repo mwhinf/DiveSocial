@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,20 +59,20 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmo-GI-z5n">
-                    <rect key="frame" x="16" y="55" width="165" height="70"/>
+                    <rect key="frame" x="16" y="55" width="170" height="70"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiveSite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-0d-gjM">
-                            <rect key="frame" x="8" y="12" width="150" height="15"/>
+                            <rect key="frame" x="8" y="9" width="158" height="16"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="150" id="Tz2-zl-wBz"/>
-                                <constraint firstAttribute="height" constant="15" id="YDf-j9-5B9"/>
+                                <constraint firstAttribute="width" constant="158" id="Tz2-zl-wBz"/>
+                                <constraint firstAttribute="height" constant="16" id="YDf-j9-5B9"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp0-aq-lIA">
-                            <rect key="frame" x="8" y="32" width="150" height="15"/>
+                            <rect key="frame" x="8" y="30" width="150" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="AOk-R1-8np"/>
                                 <constraint firstAttribute="height" constant="15" id="dhk-Is-o5x"/>
@@ -84,7 +82,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHA-hH-QRP">
-                            <rect key="frame" x="8" y="47" width="150" height="15"/>
+                            <rect key="frame" x="8" y="45" width="150" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="150" id="6YP-Hg-Sfb"/>
                                 <constraint firstAttribute="height" constant="15" id="Nto-oY-puA"/>
@@ -98,12 +96,12 @@
                     <constraints>
                         <constraint firstItem="GHA-hH-QRP" firstAttribute="leading" secondItem="kmo-GI-z5n" secondAttribute="leading" constant="8" id="E5h-pk-dkk"/>
                         <constraint firstItem="cp0-aq-lIA" firstAttribute="leading" secondItem="kmo-GI-z5n" secondAttribute="leading" constant="8" id="F1S-oL-mTl"/>
-                        <constraint firstItem="Rl9-0d-gjM" firstAttribute="top" secondItem="kmo-GI-z5n" secondAttribute="top" constant="12" id="Syz-jn-qI8"/>
+                        <constraint firstItem="Rl9-0d-gjM" firstAttribute="top" secondItem="kmo-GI-z5n" secondAttribute="top" constant="9" id="Syz-jn-qI8"/>
                         <constraint firstItem="GHA-hH-QRP" firstAttribute="top" secondItem="cp0-aq-lIA" secondAttribute="bottom" id="afW-A0-b3L"/>
                         <constraint firstAttribute="height" constant="70" id="ege-zk-1i5"/>
                         <constraint firstItem="Rl9-0d-gjM" firstAttribute="leading" secondItem="kmo-GI-z5n" secondAttribute="leading" constant="8" id="lgx-V6-Ph7"/>
                         <constraint firstItem="cp0-aq-lIA" firstAttribute="top" secondItem="Rl9-0d-gjM" secondAttribute="bottom" constant="5" id="rBN-hg-Eq3"/>
-                        <constraint firstAttribute="width" constant="165" id="x6r-RD-FN8"/>
+                        <constraint firstAttribute="width" constant="170" id="x6r-RD-FN8"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -115,13 +113,13 @@
                     <rect key="frame" x="207" y="45" width="78" height="85"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Depth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykx-w4-4Hq">
-                            <rect key="frame" x="9" y="23" width="61" height="15"/>
+                            <rect key="frame" x="8.5" y="23" width="61" height="15"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BU-wF-Axd">
-                            <rect key="frame" x="12" y="49" width="55" height="15"/>
+                            <rect key="frame" x="11.5" y="49" width="55" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="moF-Qr-29f"/>
                             </constraints>
@@ -136,7 +134,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgn-hU-qK0">
-                            <rect key="frame" x="6.5" y="8" width="66" height="15"/>
+                            <rect key="frame" x="6" y="8" width="66" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="66" id="lf5-Mi-BOn"/>
                                 <constraint firstAttribute="height" constant="15" id="yan-nZ-rBf"/>

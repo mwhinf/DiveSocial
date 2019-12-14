@@ -21,6 +21,11 @@ class HelpViewController: UIViewController {
     func openUrl(urlStr:String!) {
         
         if let url = URL(string:urlStr)
-        { UIApplication.shared.open(url as URL, options: [:], completionHandler: nil) }
+        { UIApplication.shared.open(url as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil) }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
