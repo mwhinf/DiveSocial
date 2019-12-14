@@ -30,6 +30,7 @@
 		535635FF23A16C9500269A41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535635FE23A16C9400269A41 /* UIKit.framework */; };
 		5356360323A16E5D00269A41 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5356360223A16E5D00269A41 /* GooglePlaces.framework */; };
 		5356360523A16E7800269A41 /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5356360423A16E7800269A41 /* GooglePlaces.bundle */; };
+		5356360F23A4855D00269A41 /* DiveDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356360E23A4855D00269A41 /* DiveDetailsViewController.swift */; };
 		535F44CF23A15A4A0054FA66 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44CE23A15A4A0054FA66 /* HelpViewController.swift */; };
 		535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44D223A15B800054FA66 /* CoreDataManager.swift */; };
 		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
@@ -97,6 +98,7 @@
 		5356360223A16E5D00269A41 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
 		5356360423A16E7800269A41 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = DiveLog/Bundles/GooglePlaces.bundle; sourceTree = SOURCE_ROOT; };
 		5356360923A17CE300269A41 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Master_DiveSites_List.csv; sourceTree = "<group>"; };
+		5356360E23A4855D00269A41 /* DiveDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveDetailsViewController.swift; sourceTree = "<group>"; };
 		535F44CE23A15A4A0054FA66 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		535F44D223A15B800054FA66 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
 				530EE05820C9AC2B00F708DF /* addDiveController.swift */,
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
+				5356360E23A4855D00269A41 /* DiveDetailsViewController.swift */,
 				53A564F820D347DA0019C414 /* GPSViewController.swift */,
 				53A564FA20D4CF9D0019C414 /* CustomTabBarController.swift */,
 				535F44CE23A15A4A0054FA66 /* HelpViewController.swift */,
@@ -467,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E07B7820DDF22500625188 /* CancelButton.swift in Sources */,
+				5356360F23A4855D00269A41 /* DiveDetailsViewController.swift in Sources */,
 				53E3745520BFB6E5000299DB /* LoginView.swift in Sources */,
 				53A564F920D347DA0019C414 /* GPSViewController.swift in Sources */,
 				535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */,

@@ -298,7 +298,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         dive4.setValue("", forKeyPath: "startTankPressure")
         dive4.setValue("", forKeyPath: "endTankPressure")
         dive4.setValue("", forKeyPath: "diveNotes")
-        dive4.setValue(1576290917.198333, forKeyPath: "timeInterval")
+        dive4.setValue(1513998074.0, forKeyPath: "timeInterval")
         
         
         let dive5 = NSManagedObject(entity: entity, insertInto: managedContext)
