@@ -10,19 +10,14 @@ import UIKit
 import GoogleMaps
 import CoreData
 
-
 class mapViewController: UIViewController {
-
     
     var dives: [NSManagedObject] = []
     var camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
     
     var coreDataManager: CoreDataManager!
     
-    @IBAction func unwindToMap(unwindSegue: UIStoryboardSegue) {
-        
-    }
-    
+    @IBAction func unwindToMap(unwindSegue: UIStoryboardSegue) {}
     
     @IBAction func longPress(_ sender: UILongPressGestureRecognizer) {
         camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
@@ -32,15 +27,7 @@ class mapViewController: UIViewController {
     
     @IBOutlet fileprivate weak var mapView: GMSMapView!
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-//        if segue.destination is DiveListController
-//        {
-//            let vc = segue.destination as? DiveListController
-//            vc?.dives = dives
-//        }
-    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +37,12 @@ class mapViewController: UIViewController {
         
         let managedContext = coreDataManager.managedObjectContext
         
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
         
-        do {
-            dives = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Couldn't fetch. \(error), \(error.userInfo)")
-        }
+        do
+            { dives = try managedContext.fetch(fetchRequest) }
+        catch let error as NSError
+            { print("Couldn't fetch. \(error), \(error.userInfo)") }
         
         mapView.delegate = self
         mapView.mapType = GMSMapViewType.hybrid
@@ -74,10 +59,9 @@ class mapViewController: UIViewController {
             marker.position = CLLocationCoordinate2D(latitude: tempLat!, longitude: tempLong!)
             marker.title = String(counter)
             marker.map = mapView
-            if counter == dives.count - 1 {
-                mapView.selectedMarker = marker
+            if counter == dives.count - 1
+                { mapView.selectedMarker = marker }
             
-            }
             counter+=1
         }
     }
@@ -91,14 +75,7 @@ class mapViewController: UIViewController {
         
         showMarker()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
-
 
 extension mapViewController: GMSMapViewDelegate{
     
@@ -116,12 +93,11 @@ extension mapViewController: GMSMapViewDelegate{
         infoWindow.dateLabel.text = diveTemp.value(forKeyPath: "date") as? String
         infoWindow.diveSiteLabel.text = diveTemp.value(forKeyPath: "diveSite") as? String
         let locationTemp = diveTemp.value(forKeyPath: "location") as? String
-        if locationTemp?.isEmpty == false {
-            infoWindow.locationLabel.text = locationTemp! + ","
-        }
-        else {
-            infoWindow.locationLabel.text = locationTemp!
-        }
+        
+        if locationTemp?.isEmpty == false
+            { infoWindow.locationLabel.text = locationTemp! + "," }
+        else
+            { infoWindow.locationLabel.text = locationTemp! }
         
         infoWindow.countryLabel.text = diveTemp.value(forKeyPath: "country") as? String
         infoWindow.depthLabel.text = diveTemp.value(forKeyPath: "depth") as? String
@@ -129,7 +105,6 @@ extension mapViewController: GMSMapViewDelegate{
         
         return infoWindow
     }
-    
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
 

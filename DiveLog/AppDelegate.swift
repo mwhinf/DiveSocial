@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 import CoreData
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyAtWcj1Gili_tDXE4vccH0X0aksoH2nzIY")
         
-        guard let viewController = window?.rootViewController as? DiveListController else {
-            fatalError("Unexpected Root View Controller")
-        }
+        guard let viewController = window?.rootViewController as? DiveListController else
+            { fatalError("Unexpected Root View Controller") }
         
         // Configure View Controller
         viewController.coreDataManager = coreDataManager
@@ -53,9 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    
-    
-
 }
 

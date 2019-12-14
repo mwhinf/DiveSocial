@@ -11,7 +11,6 @@ import GoogleMaps
 import CloudKit
 import CoreData
 
-
 class DiveListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Declare global variables & objects
@@ -23,8 +22,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     
     let diveSegueIdentifier = "ShowDiveSegue"
     
-    @IBAction func unwindToDiveList(unwindSegue: UIStoryboardSegue) {
-    }
+    @IBAction func unwindToDiveList(unwindSegue: UIStoryboardSegue) {}
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,9 +31,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.rowHeight = 140;
         self.tableView.allowsSelection = false
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,53 +41,46 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         
         let managedContext = coreDataManager.managedObjectContext
         
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+        
+        let sortDescriptor = NSSortDescriptor(key: "timeInterval", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
-            dives = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Couldn't fetch. \(error), \(error.userInfo)")
+                
+            let diveList = try managedContext.fetch(fetchRequest)
+
+            for (index, dive) in diveList.enumerated() {
+                
+                let diveNum = String(index + 1)
+                
+                dive.setValue(diveNum, forKeyPath: "diveNo")
+            }
+            self.dives = diveList
         }
+        catch let error as NSError
+            { print("Couldn't fetch. \(error), \(error.userInfo)") }
+        
+        do
+            { try managedContext.save() }
+        catch let error as NSError
+            { print("Could not delete. \(error), \(error.userInfo)") }
         
         // Reload Dive Data on background thread
-        DispatchQueue.main.async {
-         self.tableView.reloadData()
-         }
+        DispatchQueue.main.async
+        { self.tableView.reloadData() }
+        
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-//        if segue.destination is AddDiveController
-//        {
-//            let vc = segue.destination as? AddDiveController
-//            vc?.dives = dives
-//        }
-//        else if segue.destination is mapViewController
-//        {
-//            let vc = segue.destination as? mapViewController
-//            vc?.dives = dives
-//        }
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
     
     // Set up tableview
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
-    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
+        { return cellSpacingHeight }
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return dives.count
-    }
-    
+    func numberOfSections(in tableView: UITableView) -> Int
+        { return dives.count }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
@@ -99,15 +88,10 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         return headerView
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+        { return 1 }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -123,18 +107,17 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         let depthLabel = dive.value(forKeyPath: "depth") as? String
         let btmTimeLabel = dive.value(forKeyPath: "bottomTime") as? String
         
-        
-        cell.diveNoLabel.text = "Dive No." + diveNoLabel!
+        cell.diveNoLabel.text = "Dive No." + (diveNoLabel ?? "0")
         cell.dateLabel.text = dateLabel
         cell.diveSiteLabel.text = diveSiteLabel
         
-        if locationLabel!.isEmpty == false {
-            cell.locationLabel.text = locationLabel! + ","
-        }
-        else {
-            cell.locationLabel.text = locationLabel!
-        }
+        if (locationLabel != nil) {
         
+            if locationLabel!.isEmpty == false
+                { cell.locationLabel.text = (locationLabel ?? "") + "," }
+            else
+                { cell.locationLabel.text = (locationLabel ?? "") }
+        }
         cell.countryLabel.text = countryLabel
         cell.depthLabel.text = depthLabel
         cell.btmTimeLabel.text = btmTimeLabel
@@ -145,51 +128,58 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             
             // delete item at indexPath
-            
             let sectionToDelete: IndexSet = [indexPath.section]
-            
-            self.coreDataManager = CoreDataManager(modelName: "DiveModel")
-            
+                        
             let managedContext = self.coreDataManager.managedObjectContext
             
-            let fetchRequest =
-                NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
+            
+            let sortDescriptor = NSSortDescriptor(key: "timeInterval", ascending: true)
+                    
+            fetchRequest.sortDescriptors = [sortDescriptor]
             
             do {
-                let test = try managedContext.fetch(fetchRequest)
+                var test = try managedContext.fetch(fetchRequest)
                 
                 let diveToDelete = test[indexPath.section]
+                
+                test.remove(at: indexPath.section)
+
                 managedContext.delete(diveToDelete)
                 
-            } catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
-            }
+                for (index, dive) in test.enumerated() {
+                    
+                    let diveNum = String(index + 1)
+                    
+                    dive.setValue(diveNum, forKeyPath: "diveNo")
+
+                    }
+                }
+            catch let error as NSError
+                { print("Could not fetch. \(error), \(error.userInfo)") }
             
             self.dives.remove(at: indexPath.section)
             
-            tableView.deleteSections(sectionToDelete, with: .fade)
+            self.tableView.deleteSections(sectionToDelete, with: .fade)
             
-            do {
-                try managedContext.save()
-    
-            } catch let error as NSError {
-                print("Could not delete. \(error), \(error.userInfo)")
-            }
+            self.tableView.reloadData()
+
+            do
+                { try managedContext.save() }
+            catch let error as NSError
+                { print("Could not delete. \(error), \(error.userInfo)") }
             
     }
         return [delete]
 }
-    
 }
 
 extension UITextField {
-    var unwrappedText: String {
-        return self.text ?? ""
-    }
+    var unwrappedText: String
+        { return self.text ?? "" }
 }
