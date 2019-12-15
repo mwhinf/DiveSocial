@@ -39,6 +39,10 @@ class mapViewController: UIViewController {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
         
+        let sortDescriptor = NSSortDescriptor(key: "timeInterval", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
         do
             { dives = try managedContext.fetch(fetchRequest) }
         catch let error as NSError
@@ -51,6 +55,7 @@ class mapViewController: UIViewController {
     
     func showMarker(){
         var counter = 0
+        
         for dive in dives {
             
             let marker = GMSMarker()
@@ -59,8 +64,12 @@ class mapViewController: UIViewController {
             marker.position = CLLocationCoordinate2D(latitude: tempLat!, longitude: tempLong!)
             marker.title = String(counter)
             marker.map = mapView
-            if counter == dives.count - 1
-                { mapView.selectedMarker = marker }
+            if counter == dives.count - 1 {
+                mapView.selectedMarker = marker
+                camera = GMSCameraPosition.camera(withLatitude: tempLat ?? 20.189, longitude: tempLong ?? 89.702, zoom: 2.0)
+                    
+                mapView.camera = camera
+            }
             
             counter+=1
         }
@@ -69,10 +78,11 @@ class mapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
-        
-        mapView.camera = camera
-        
+        if self.dives.isEmpty {
+            camera = GMSCameraPosition.camera(withLatitude: 20.189, longitude: 89.702, zoom: 2.0)
+
+            mapView.camera = camera
+        }
         showMarker()
     }
 }

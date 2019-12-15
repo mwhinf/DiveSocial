@@ -152,12 +152,16 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "DiveInstance")
         
+        let sortDescriptor = NSSortDescriptor(key: "timeInterval", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
         do
             { dives = try managedContext.fetch(fetchRequest) }
         catch let error as NSError
             { print("Couldn't fetch. \(error), \(error.userInfo)") }
         
-        var data = readDataFromCSV(fileName: "testerbook", fileType: "csv")
+        var data = readDataFromCSV(fileName: "Master_DiveSites_List_tester", fileType: "csv")
         
         data = cleanRows(file: data!)
         csvRows = csv(data: data!)
@@ -503,7 +507,7 @@ class AddDiveController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         do {
             var contents = try String(contentsOfFile: filepath, encoding: .utf8)
             
-            contents = cleanRows(file: contents)
+//            contents = cleanRows(file: contents)
             
             return contents
         } catch {

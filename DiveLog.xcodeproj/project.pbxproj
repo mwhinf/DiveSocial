@@ -33,6 +33,7 @@
 		5356360F23A4855D00269A41 /* DiveDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5356360E23A4855D00269A41 /* DiveDetailsViewController.swift */; };
 		535F44CF23A15A4A0054FA66 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44CE23A15A4A0054FA66 /* HelpViewController.swift */; };
 		535F44D323A15B800054FA66 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535F44D223A15B800054FA66 /* CoreDataManager.swift */; };
+		5379A5B723A5D6DD00F499B6 /* Master_DiveSites_List_tester.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5379A5B623A5D6DD00F499B6 /* Master_DiveSites_List_tester.csv */; };
 		5381FA292241F74E00C9ABF0 /* testerbook.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5381FA282241F74E00C9ABF0 /* testerbook.csv */; };
 		538DCD6020B4A1A300F58FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */; };
 		538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538DCD6320B4A1A300F58FB9 /* Main.storyboard */; };
@@ -41,7 +42,6 @@
 		538DCD7520B4A1A700F58FB9 /* DiveLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD7420B4A1A700F58FB9 /* DiveLogTests.swift */; };
 		538DCD8020B4A1A700F58FB9 /* DiveLogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538DCD7F20B4A1A700F58FB9 /* DiveLogUITests.swift */; };
 		5396DF2A211A09A900361443 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5396DF29211A09A900361443 /* CloudKit.framework */; };
-		5396DF2E211B5C0B00361443 /* Thailand_DiveSite_GPS.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */; };
 		539A8E1A20B6674E0061464F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A8E1920B6674E0061464F /* TableViewCell.swift */; };
 		539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */; };
 		539B3D1320C85536000F18BC /* MapMarkerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B3D1220C85536000F18BC /* MapMarkerWindow.swift */; };
@@ -97,10 +97,10 @@
 		535635FE23A16C9400269A41 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5356360223A16E5D00269A41 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
 		5356360423A16E7800269A41 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = DiveLog/Bundles/GooglePlaces.bundle; sourceTree = SOURCE_ROOT; };
-		5356360923A17CE300269A41 /* Master_DiveSites_List.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Master_DiveSites_List.csv; sourceTree = "<group>"; };
 		5356360E23A4855D00269A41 /* DiveDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiveDetailsViewController.swift; sourceTree = "<group>"; };
 		535F44CE23A15A4A0054FA66 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		535F44D223A15B800054FA66 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5379A5B623A5D6DD00F499B6 /* Master_DiveSites_List_tester.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Master_DiveSites_List_tester.csv; sourceTree = "<group>"; };
 		5381FA282241F74E00C9ABF0 /* testerbook.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testerbook.csv; sourceTree = "<group>"; };
 		538DCD5C20B4A1A300F58FB9 /* DiveLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiveLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,7 +116,6 @@
 		538DCD8120B4A1A700F58FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5396DF28211A098F00361443 /* DiveLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiveLog.entitlements; sourceTree = "<group>"; };
 		5396DF29211A09A900361443 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Thailand_DiveSite_GPS.csv; sourceTree = "<group>"; };
 		539A8E1920B6674E0061464F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		539B3D1020C8550D000F18BC /* MapMarkerWindowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMarkerWindowView.xib; sourceTree = "<group>"; };
 		539B3D1220C85536000F18BC /* MapMarkerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerWindow.swift; sourceTree = "<group>"; };
@@ -221,8 +220,7 @@
 		5356360823A17CCD00269A41 /* DiveSite Location Data */ = {
 			isa = PBXGroup;
 			children = (
-				5356360923A17CE300269A41 /* Master_DiveSites_List.csv */,
-				5396DF2D211B5C0B00361443 /* Thailand_DiveSite_GPS.csv */,
+				5379A5B623A5D6DD00F499B6 /* Master_DiveSites_List_tester.csv */,
 				5381FA282241F74E00C9ABF0 /* testerbook.csv */,
 			);
 			path = "DiveSite Location Data";
@@ -445,7 +443,7 @@
 				538DCD6720B4A1A600F58FB9 /* Assets.xcassets in Resources */,
 				538DCD6520B4A1A300F58FB9 /* Main.storyboard in Resources */,
 				539B3D1120C8550E000F18BC /* MapMarkerWindowView.xib in Resources */,
-				5396DF2E211B5C0B00361443 /* Thailand_DiveSite_GPS.csv in Resources */,
+				5379A5B723A5D6DD00F499B6 /* Master_DiveSites_List_tester.csv in Resources */,
 				5356360523A16E7800269A41 /* GooglePlaces.bundle in Resources */,
 				535635E123A16B4E00269A41 /* GoogleMaps.bundle in Resources */,
 			);
