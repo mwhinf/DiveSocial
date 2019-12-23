@@ -108,7 +108,7 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         let depthLabel = dive.value(forKeyPath: "depth") as? String
         let btmTimeLabel = dive.value(forKeyPath: "bottomTime") as? String
         
-        cell.diveNoLabel.text = "Dive No." + (diveNoLabel ?? "0")
+        cell.diveNoLabel.text = "No." + (diveNoLabel ?? "0")
         cell.dateLabel.text = dateLabel
         cell.diveSiteLabel.text = diveSiteLabel
         

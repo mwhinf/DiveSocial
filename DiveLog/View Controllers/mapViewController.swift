@@ -99,7 +99,7 @@ extension mapViewController: GMSMapViewDelegate{
         infoWindow.layer.borderColor = UIColor.white.cgColor
         let diveTemp =  dives[tempNum!]
         let diveNoTemp = diveTemp.value(forKeyPath: "diveNo") as? String
-        infoWindow.diveNoLabel.text = "Dive No. " + diveNoTemp!
+        infoWindow.diveNoLabel.text = "No. " + diveNoTemp!
         infoWindow.dateLabel.text = diveTemp.value(forKeyPath: "date") as? String
         infoWindow.diveSiteLabel.text = diveTemp.value(forKeyPath: "diveSite") as? String
         let locationTemp = diveTemp.value(forKeyPath: "location") as? String
