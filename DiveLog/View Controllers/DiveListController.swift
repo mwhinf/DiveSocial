@@ -70,8 +70,8 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
         DispatchQueue.main.async
         { self.tableView.reloadData() }
         
-        if self.dives.isEmpty
-            { loadDummyData() }
+//        if self.dives.isEmpty
+//            { loadDummyData() }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
