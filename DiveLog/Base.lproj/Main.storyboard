@@ -1182,12 +1182,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keO-PW-dgz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTe-Gz-qxn">
-                                        <rect key="frame" x="275" y="7.5" width="77" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTe-Gz-qxn">
+                                        <rect key="frame" x="280" y="7.5" width="77" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="nav-vS-bzN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Add Dive">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -1196,8 +1197,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyq-i3-hDj">
-                                        <rect key="frame" x="29" y="13" width="41" height="34"/>
+                                        <rect key="frame" x="20" y="13" width="41" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Help">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -1205,14 +1207,22 @@
                                             <segue destination="EZm-mB-wU1" kind="show" id="xN3-65-biE"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Dives" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g0-jT-XFI">
+                                        <rect key="frame" x="140.5" y="17" width="94" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.4823529411764706" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="vTe-Gz-qxn" secondAttribute="trailing" constant="23" id="FtW-AB-ybO"/>
-                                    <constraint firstItem="vTe-Gz-qxn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="keO-PW-dgz" secondAttribute="leading" constant="329" id="S4X-xv-F8y"/>
+                                    <constraint firstItem="0g0-jT-XFI" firstAttribute="centerX" secondItem="keO-PW-dgz" secondAttribute="centerX" id="6Rd-Qb-22I"/>
+                                    <constraint firstAttribute="trailing" secondItem="vTe-Gz-qxn" secondAttribute="trailing" constant="18" id="FtW-AB-ybO"/>
+                                    <constraint firstItem="vTe-Gz-qxn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="keO-PW-dgz" secondAttribute="leading" constant="400" id="S4X-xv-F8y"/>
                                     <constraint firstItem="vTe-Gz-qxn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qyq-i3-hDj" secondAttribute="trailing" constant="120" id="WZz-N3-U0x"/>
-                                    <constraint firstItem="Qyq-i3-hDj" firstAttribute="leading" secondItem="keO-PW-dgz" secondAttribute="leading" constant="29" id="aaP-6f-yJv"/>
+                                    <constraint firstItem="Qyq-i3-hDj" firstAttribute="leading" secondItem="keO-PW-dgz" secondAttribute="leading" constant="20" id="aaP-6f-yJv"/>
                                     <constraint firstItem="Qyq-i3-hDj" firstAttribute="centerY" secondItem="keO-PW-dgz" secondAttribute="centerY" id="gGz-sb-4LM"/>
+                                    <constraint firstItem="0g0-jT-XFI" firstAttribute="centerY" secondItem="keO-PW-dgz" secondAttribute="centerY" id="hfs-0S-uta"/>
                                     <constraint firstAttribute="height" constant="60" id="nH6-yT-6br"/>
                                     <constraint firstItem="vTe-Gz-qxn" firstAttribute="centerY" secondItem="keO-PW-dgz" secondAttribute="centerY" id="pbF-8t-wFH"/>
                                 </constraints>
@@ -1287,6 +1297,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButtonTrailingConstraint" destination="FtW-AB-ybO" id="n5r-FP-mPy"/>
+                        <outlet property="addDiveButton" destination="vTe-Gz-qxn" id="B6E-5U-NpT"/>
+                        <outlet property="helpButton" destination="Qyq-i3-hDj" id="qfo-gU-M1h"/>
+                        <outlet property="helpButtonLeadingConstraint" destination="aaP-6f-yJv" id="3cV-g5-8Iu"/>
                         <outlet property="tableView" destination="Cpc-en-c3g" id="Jeh-w1-I5b"/>
                     </connections>
                 </viewController>
