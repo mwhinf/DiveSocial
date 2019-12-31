@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qht-Fn-CAU">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.4823529411764706" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHy-0m-uJO">
-                                        <rect key="frame" x="30" y="8" width="60" height="34"/>
+                                        <rect key="frame" x="24" y="8" width="60" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
@@ -38,7 +38,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-O1-zyq">
-                                        <rect key="frame" x="303" y="8" width="42" height="34"/>
+                                        <rect key="frame" x="309" y="8" width="42" height="34"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
@@ -56,14 +56,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5Hh-g6-nS8"/>
                                     <constraint firstItem="Yif-O1-zyq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UVg-Cn-G4d" secondAttribute="trailing" constant="50" id="FeO-41-ww1"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yif-O1-zyq" secondAttribute="trailing" constant="30" id="IbN-vV-rZm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yif-O1-zyq" secondAttribute="trailing" constant="24" id="IbN-vV-rZm"/>
                                     <constraint firstItem="lHy-0m-uJO" firstAttribute="top" secondItem="eEQ-rQ-3PJ" secondAttribute="top" constant="8" id="S4b-2p-2fs"/>
                                     <constraint firstItem="Yif-O1-zyq" firstAttribute="top" secondItem="eEQ-rQ-3PJ" secondAttribute="top" constant="8" id="TaT-zj-53x"/>
                                     <constraint firstItem="UVg-Cn-G4d" firstAttribute="centerX" secondItem="eEQ-rQ-3PJ" secondAttribute="centerX" id="XeF-Nq-sgm"/>
                                     <constraint firstAttribute="width" constant="375" id="jNi-bC-e0w"/>
                                     <constraint firstItem="UVg-Cn-G4d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lHy-0m-uJO" secondAttribute="trailing" constant="30" id="uR0-nU-zjT"/>
                                     <constraint firstItem="UVg-Cn-G4d" firstAttribute="top" secondItem="eEQ-rQ-3PJ" secondAttribute="top" constant="11" id="wec-7t-kGP"/>
-                                    <constraint firstItem="lHy-0m-uJO" firstAttribute="leading" secondItem="eEQ-rQ-3PJ" secondAttribute="leading" constant="30" id="xhL-d3-eSs"/>
+                                    <constraint firstItem="lHy-0m-uJO" firstAttribute="leading" secondItem="eEQ-rQ-3PJ" secondAttribute="leading" constant="24" id="xhL-d3-eSs"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eoW-Oc-shp">
@@ -825,7 +825,7 @@
                             <constraint firstItem="X2O-6W-9n4" firstAttribute="bottom" secondItem="eoW-Oc-shp" secondAttribute="bottom" id="PIk-GQ-4Yw"/>
                             <constraint firstItem="qht-Fn-CAU" firstAttribute="centerX" secondItem="Qre-Gc-X3Z" secondAttribute="centerX" id="PNA-6T-TO2"/>
                             <constraint firstItem="qht-Fn-CAU" firstAttribute="leading" secondItem="X2O-6W-9n4" secondAttribute="leading" id="R0P-PV-yQu"/>
-                            <constraint firstItem="X2O-6W-9n4" firstAttribute="bottom" secondItem="qht-Fn-CAU" secondAttribute="bottom" id="SUd-r9-GAG"/>
+                            <constraint firstItem="X2O-6W-9n4" firstAttribute="bottom" secondItem="qht-Fn-CAU" secondAttribute="bottom" constant="-50" id="SUd-r9-GAG"/>
                             <constraint firstItem="X2O-6W-9n4" firstAttribute="trailing" secondItem="qht-Fn-CAU" secondAttribute="trailing" id="TnT-KL-N8m"/>
                             <constraint firstItem="qht-Fn-CAU" firstAttribute="top" secondItem="X2O-6W-9n4" secondAttribute="top" constant="50" id="Uef-do-wyk"/>
                             <constraint firstItem="eEQ-rQ-3PJ" firstAttribute="leading" secondItem="X2O-6W-9n4" secondAttribute="leading" id="btn-FN-O1C"/>
