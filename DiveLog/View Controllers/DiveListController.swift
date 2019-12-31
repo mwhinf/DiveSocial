@@ -22,12 +22,37 @@ class DiveListController: UIViewController, UITableViewDelegate, UITableViewData
     
     let diveSegueIdentifier = "ShowDiveSegue"
     
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var addDiveButton: UIButton!
+    
+    @IBOutlet weak var addButtonTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var helpButtonLeadingConstraint: NSLayoutConstraint!
+    
     @IBAction func unwindToDiveList(unwindSegue: UIStoryboardSegue) {}
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            
+            let largeConfiguration = UIImage.SymbolConfiguration(scale: .large)
+            
+            let plusSymbol = UIImage(systemName: "plus", withConfiguration: largeConfiguration)
+            self.addDiveButton.setTitle(nil, for: .normal)
+            self.addDiveButton.setImage(plusSymbol, for: .normal)
+            
+            self.addButtonTrailingConstraint.constant = 18
+            
+            let settingsSymbol = UIImage(systemName: "gear", withConfiguration: largeConfiguration)
+            self.helpButton.setTitle(nil, for: .normal)
+            self.helpButton.setImage(settingsSymbol, for: .normal)
+            
+            self.helpButtonLeadingConstraint.constant = 18
+
+            self.view.layoutIfNeeded()
+        }
         
         self.tableView.rowHeight = 140;
         self.tableView.allowsSelection = false
