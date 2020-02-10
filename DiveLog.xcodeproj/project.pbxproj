@@ -205,7 +205,6 @@
 		5356360723A17C5000269A41 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5356360823A17CCD00269A41 /* DiveSite Location Data */,
 				5343BEF520C9D9D7006298B3 /* DiveListController.swift */,
 				530EE05820C9AC2B00F708DF /* addDiveController.swift */,
 				53A185D220BF0DB3009301DF /* mapViewController.swift */,
@@ -290,10 +289,11 @@
 		538DCD5E20B4A1A300F58FB9 /* DiveLog */ = {
 			isa = PBXGroup;
 			children = (
+				5356360823A17CCD00269A41 /* DiveSite Location Data */,
 				5396DF28211A098F00361443 /* DiveLog.entitlements */,
-				5356360B23A17DAD00269A41 /* UI  */,
 				538DCD6320B4A1A300F58FB9 /* Main.storyboard */,
 				538DCD6820B4A1A600F58FB9 /* LaunchScreen.storyboard */,
+				5356360B23A17DAD00269A41 /* UI  */,
 				5356360723A17C5000269A41 /* View Controllers */,
 				538DCD5F20B4A1A300F58FB9 /* AppDelegate.swift */,
 				535F44D223A15B800054FA66 /* CoreDataManager.swift */,
